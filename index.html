@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AviaFly Travel | Visa & Travel Services</title>
+  <meta name="description" content="AviaFly Travel — viza dəstəyi, avia biletlər, tur paketlər, transfer və qrup turları." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:#071527;
+      --ink-2:#0c2442;
+      --deep:#06111f;
+      --paper:#fbfaf6;
+      --soft:#f2efe8;
+      --card:#ffffff;
+      --muted:#657084;
+      --line:rgba(7,21,39,.12);
+      --gold:#c9a968;
+      --gold-2:#e8d3a4;
+      --green:#1c8b4d;
+      --danger:#b42318;
+      --shadow:0 26px 80px rgba(7,21,39,.16);
+      --shadow-soft:0 18px 45px rgba(7,21,39,.09);
+      --radius:28px;
+      --max:1240px;
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      font-family:Inter, sans-serif;
+      background:
+        radial-gradient(circle at 4% 0%, rgba(201,169,104,.20), transparent 32%),
+        radial-gradient(circle at 92% 8%, rgba(28,139,77,.11), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, var(--paper) 58%, #f0eee8 100%);
+      color:var(--ink);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    body.modal-open {
+      overflow:hidden;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    img {
+      display:block;
+      max-width:100%;
+    }
+
+    .container {
+      width:min(100% - 36px, var(--max));
+      margin:0 auto;
+    }
+
+    .top-line {
+      background:var(--deep);
+      color:rgba(255,255,255,.78);
+      font-size:13px;
+      font-weight:600;
+      letter-spacing:.01em;
+    }
+
+    .top-line-inner {
+      min-height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .top-line a {
+      color:white;
+      opacity:.88;
+    }
+
+    .top-line-links {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(251,250,246,.88);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(7,21,39,.08);
+    }
+
+    .nav {
+      min-height:86px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:max-content;
+    }
+
+    .brand-logo {
+      width:60px;
+      height:60px;
+      border-radius:18px;
+      background:white;
+      border:1px solid rgba(201,169,104,.32);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+    }
+
+    .brand-logo img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .brand strong {
+      display:block;
+      font-size:22px;
+      line-height:1;
+      letter-spacing:-.04em;
+      font-weight:900;
+      color:var(--ink);
+    }
+
+    .brand span {
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    nav {
+      display:flex;
+      align-items:center;
+      gap:25px;
+      font-size:14px;
+      font-weight:800;
+      color:#26364c;
+    }
+
+    nav a {
+      transition:.18s ease;
+    }
+
+    nav a:hover {
+      color:var(--green);
+    }
+
+    .nav-actions {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .lang {
+      display:flex;
+      gap:4px;
+      padding:5px;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:999px;
+      box-shadow:0 10px 25px rgba(7,21,39,.06);
+    }
+
+    .lang button {
+      border:0;
+      background:transparent;
+      color:#39465a;
+      padding:8px 10px;
+      border-radius:999px;
+      font-family:inherit;
+      font-weight:900;
+      font-size:12px;
+      cursor:pointer;
+    }
+
+    .lang button.active {
+      background:var(--ink);
+      color:white;
+    }
+
+    .btn {
+      border:0;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:52px;
+      padding:0 22px;
+      border-radius:999px;
+      font-family:inherit;
+      font-size:15px;
+      font-weight:900;
+      cursor:pointer;
+      transition:.24s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover {
+      transform:translateY(-3px);
+    }
+
+    .btn-primary {
+      color:white;
+      background:linear-gradient(135deg, var(--green), #0f6f3b);
+      box-shadow:0 18px 38px rgba(28,139,77,.25);
+    }
+
+    .btn-dark {
+      color:white;
+      background:linear-gradient(135deg, var(--ink), var(--ink-2));
+      box-shadow:var(--shadow-soft);
+    }
+
+    .btn-gold {
+      color:#101828;
+      background:linear-gradient(135deg, var(--gold-2), var(--gold));
+      box-shadow:0 18px 38px rgba(201,169,104,.26);
+    }
+
+    .btn-light {
+      color:var(--ink);
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:0 12px 26px rgba(7,21,39,.06);
+    }
+
+    .hero {
+      position:relative;
+      padding:86px 0 64px;
+      overflow:hidden;
+    }
+
+    .hero::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.98), rgba(255,255,255,.82), rgba(255,255,255,.58)),
+        url("logo.jpg") right 8% center / 560px no-repeat;
+      opacity:.62;
+      pointer-events:none;
+    }
+
+    .hero-grid {
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:38px;
+      align-items:center;
+    }
+
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(201,169,104,.13);
+      border:1px solid rgba(201,169,104,.24);
+      color:#735622;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+
+    h1 {
+      font-size:clamp(46px, 7vw, 86px);
+      line-height:.94;
+      letter-spacing:-.065em;
+      font-weight:900;
+      color:var(--ink);
+      max-width:850px;
+      margin-bottom:22px;
+    }
+
+    .hero-lead {
+      color:#46566d;
+      font-size:clamp(17px, 2vw, 21px);
+      max-width:720px;
+      margin-bottom:30px;
+    }
+
+    .hero-actions {
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:13px;
+      margin-bottom:30px;
+    }
+
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+      max-width:790px;
+    }
+
+    .stat {
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(7,21,39,.09);
+      border-radius:19px;
+      padding:15px;
+      box-shadow:0 14px 32px rgba(7,21,39,.07);
+    }
+
+    .stat strong {
+      display:block;
+      font-size:17px;
+      color:var(--ink);
+      line-height:1.1;
+    }
+
+    .stat span {
+      display:block;
+      margin-top:5px;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .signature-card {
+      background:linear-gradient(145deg, rgba(7,21,39,.98), rgba(12,36,66,.97));
+      border-radius:38px;
+      padding:32px;
+      color:white;
+      position:relative;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.09);
+    }
+
+    .signature-card::before {
+      content:"";
+      position:absolute;
+      width:390px;
+      height:390px;
+      right:-150px;
+      top:-150px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(201,169,104,.34), transparent 62%);
+    }
+
+    .signature-card::after {
+      content:"";
+      position:absolute;
+      left:-120px;
+      bottom:-170px;
+      width:340px;
+      height:340px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(28,139,77,.22), transparent 64%);
+    }
+
+    .signature-inner {
+      position:relative;
+      z-index:2;
+    }
+
+    .signature-card h2 {
+      font-size:clamp(30px, 4vw, 44px);
+      line-height:1.02;
+      letter-spacing:-.05em;
+      margin-bottom:14px;
+    }
+
+    .signature-card p {
+      color:rgba(255,255,255,.74);
+      margin-bottom:24px;
+      max-width:520px;
+    }
+
+    .process {
+      display:grid;
+      gap:12px;
+    }
+
+    .process-item {
+      display:flex;
+      align-items:flex-start;
+      gap:13px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      padding:15px;
+      border-radius:20px;
+    }
+
+    .process-number {
+      width:30px;
+      height:30px;
+      flex:0 0 auto;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--gold-2), var(--gold));
+      color:#101828;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .process-item strong {
+      display:block;
+      color:white;
+      font-size:15px;
+      line-height:1.2;
+    }
+
+    .process-item span {
+      display:block;
+      color:rgba(255,255,255,.62);
+      font-size:13px;
+      margin-top:3px;
+    }
+
+    section {
+      padding:78px 0;
+    }
+
+    .section-head {
+      margin-bottom:34px;
+    }
+
+    .kicker {
+      color:#0f6f3b;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+
+    .section-head h2 {
+      color:var(--ink);
+      font-size:clamp(33px, 4.5vw, 56px);
+      line-height:1.04;
+      letter-spacing:-.055em;
+      max-width:900px;
+      margin-bottom:14px;
+    }
+
+    .section-head p {
+      color:var(--muted);
+      max-width:790px;
+      font-size:16px;
+    }
+
+    .service-grid {
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:16px;
+    }
+
+    .service {
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:24px 22px;
+      box-shadow:var(--shadow-soft);
+      transition:.24s ease;
+      min-height:190px;
+    }
+
+    .service:hover {
+      transform:translateY(-7px);
+      box-shadow:var(--shadow);
+      border-color:rgba(201,169,104,.42);
+    }
+
+    .service-line {
+      width:42px;
+      height:3px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--green), var(--gold));
+      margin-bottom:18px;
+    }
+
+    .service h3 {
+      color:var(--ink);
+      font-size:19px;
+      line-height:1.15;
+      margin-bottom:10px;
+      letter-spacing:-.025em;
+    }
+
+    .service p {
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .booking-panel {
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(7,21,39,.10);
+      border-radius:40px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .booking-top {
+      background:
+        radial-gradient(circle at 18% 0%, rgba(201,169,104,.26), transparent 35%),
+        linear-gradient(135deg, var(--ink), var(--ink-2));
+      color:white;
+      padding:36px;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:24px;
+      align-items:center;
+    }
+
+    .booking-top h2 {
+      font-size:clamp(30px, 4.5vw, 52px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      margin-bottom:12px;
+    }
+
+    .booking-top p {
+      color:rgba(255,255,255,.72);
+      max-width:720px;
+    }
+
+    .selected-card {
+      background:rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:26px;
+      padding:20px;
+    }
+
+    .selected-card small {
+      display:block;
+      color:var(--gold-2);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+
+    .selected-card strong {
+      display:block;
+      font-size:24px;
+      line-height:1.15;
+      letter-spacing:-.025em;
+      margin-bottom:14px;
+    }
+
+    .booking-body {
+      padding:28px;
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .country-summary {
+      position:sticky;
+      top:118px;
+      background:#f6f7f4;
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:24px;
+    }
+
+    .country-summary h3 {
+      font-size:27px;
+      line-height:1.08;
+      letter-spacing:-.04em;
+      color:var(--ink);
+      margin-bottom:16px;
+    }
+
+    .info-stack {
+      display:grid;
+      gap:12px;
+    }
+
+    .info-box {
+      background:white;
+      border:1px solid rgba(7,21,39,.10);
+      border-radius:20px;
+      padding:16px;
+      box-shadow:0 10px 25px rgba(7,21,39,.04);
+    }
+
+    .info-box small {
+      display:block;
+      color:#0f6f3b;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+
+    .info-box p {
+      color:#344054;
+      font-weight:600;
+    }
+
+    .price-card {
+      background:linear-gradient(135deg, var(--gold-2), var(--gold));
+      color:#101828;
+      border-radius:22px;
+      padding:18px;
+      font-size:25px;
+      font-weight:900;
+      box-shadow:0 16px 35px rgba(201,169,104,.22);
+    }
+
+    .steps {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+
+    .step {
+      padding:8px 12px;
+      border-radius:999px;
+      background:#eef1f3;
+      color:#4d5a6d;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    .step.active {
+      color:white;
+      background:linear-gradient(135deg, var(--green), #0f6f3b);
+    }
+
+    .form-step {
+      display:none;
+      animation:fadeUp .42s ease both;
+    }
+
+    .form-step.active {
+      display:block;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity:0;
+        transform:translateY(16px);
+      }
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .form-title {
+      color:var(--ink);
+      font-size:28px;
+      line-height:1.06;
+      letter-spacing:-.04em;
+      margin-bottom:8px;
+    }
+
+    .form-sub {
+      color:var(--muted);
+      margin-bottom:19px;
+    }
+
+    .form-grid {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:14px;
+    }
+
+    .field {
+      display:grid;
+      gap:7px;
+      margin-bottom:14px;
+    }
+
+    .field.full {
+      grid-column:1 / -1;
+    }
+
+    label {
+      color:#344054;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    input,
+    textarea {
+      width:100%;
+      min-height:51px;
+      padding:13px 14px;
+      border-radius:17px;
+      border:1px solid rgba(7,21,39,.13);
+      background:white;
+      color:var(--ink);
+      font-family:inherit;
+      font-size:15px;
+      outline:none;
+      transition:.18s ease;
+    }
+
+    textarea {
+      min-height:104px;
+      resize:vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color:rgba(28,139,77,.60);
+      box-shadow:0 0 0 4px rgba(28,139,77,.10);
+    }
+
+    .form-actions {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:19px;
+    }
+
+    .consent {
+      display:flex;
+      align-items:flex-start;
+      gap:11px;
+      background:#f6f7f4;
+      border:1px solid rgba(7,21,39,.11);
+      border-radius:20px;
+      padding:17px;
+      margin-top:10px;
+    }
+
+    .consent input {
+      width:20px;
+      min-height:20px;
+      margin-top:2px;
+      flex:0 0 auto;
+    }
+
+    .notice {
+      display:none;
+      margin-top:14px;
+      padding:15px;
+      border-radius:18px;
+      font-weight:900;
+    }
+
+    .notice.success {
+      display:block;
+      color:#087333;
+      background:rgba(28,139,77,.11);
+      border:1px solid rgba(28,139,77,.22);
+    }
+
+    .notice.error {
+      display:block;
+      color:var(--danger);
+      background:rgba(180,35,24,.10);
+      border:1px solid rgba(180,35,24,.22);
+    }
+
+    .modal {
+      position:fixed;
+      inset:0;
+      z-index:3000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .modal.show {
+      display:flex;
+    }
+
+    .modal-backdrop {
+      position:absolute;
+      inset:0;
+      background:rgba(7,21,39,.68);
+      backdrop-filter:blur(12px);
+    }
+
+    .modal-card {
+      position:relative;
+      z-index:2;
+      width:min(100%, 1000px);
+      max-height:min(86vh, 820px);
+      overflow:auto;
+      background:rgba(255,255,255,.98);
+      border-radius:34px;
+      box-shadow:0 35px 110px rgba(0,0,0,.34);
+      padding:28px;
+      border:1px solid rgba(255,255,255,.5);
+      animation:popIn .23s ease both;
+    }
+
+    @keyframes popIn {
+      from {
+        opacity:0;
+        transform:scale(.965) translateY(16px);
+      }
+      to {
+        opacity:1;
+        transform:scale(1) translateY(0);
+      }
+    }
+
+    .modal-head {
+      position:sticky;
+      top:0;
+      z-index:4;
+      background:rgba(255,255,255,.98);
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:18px;
+      padding-bottom:18px;
+      margin-bottom:18px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .modal-head h2 {
+      color:var(--ink);
+      font-size:34px;
+      line-height:1.04;
+      letter-spacing:-.05em;
+      margin-bottom:8px;
+    }
+
+    .modal-head p {
+      color:var(--muted);
+      max-width:700px;
+    }
+
+    .close {
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      background:#f4f5f0;
+      color:var(--ink);
+      font-size:24px;
+      line-height:1;
+      cursor:pointer;
+      font-weight:800;
+      flex:0 0 auto;
+    }
+
+    .countries-grid {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:14px;
+    }
+
+    .country-card {
+      border:1px solid rgba(7,21,39,.11);
+      background:white;
+      border-radius:26px;
+      padding:18px 12px;
+      min-height:145px;
+      cursor:pointer;
+      text-align:center;
+      font-family:inherit;
+      transition:.22s ease;
+      box-shadow:0 12px 26px rgba(7,21,39,.05);
+    }
+
+    .country-card:hover,
+    .country-card.active {
+      transform:translateY(-6px);
+      border-color:rgba(201,169,104,.70);
+      box-shadow:0 18px 42px rgba(7,21,39,.13);
+    }
+
+    .flag-circle {
+      width:66px;
+      height:66px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      margin:0 auto 11px;
+      font-size:34px;
+      background:linear-gradient(180deg, #f9fafb, #eef1f3);
+      border:1px solid rgba(7,21,39,.10);
+      box-shadow:inset 0 0 0 5px rgba(255,255,255,.6);
+    }
+
+    .country-card strong {
+      display:block;
+      color:var(--ink);
+      font-size:15px;
+      line-height:1.15;
+      margin-bottom:5px;
+    }
+
+    .country-card span {
+      color:#0f6f3b;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:22px;
+    }
+
+    .contact-card {
+      background:white;
+      border:1px solid var(--line);
+      border-radius:30px;
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+
+    .contact-row {
+      padding:17px 0;
+      border-bottom:1px solid var(--line);
+    }
+
+    .contact-row:first-child {
+      padding-top:0;
+    }
+
+    .contact-row:last-child {
+      border-bottom:0;
+      padding-bottom:0;
+    }
+
+    .contact-row small {
+      display:block;
+      color:#0f6f3b;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .contact-row a,
+    .contact-row p {
+      display:block;
+      color:var(--ink);
+      font-weight:800;
+      margin-top:4px;
+    }
+
+    iframe {
+      width:100%;
+      height:100%;
+      min-height:438px;
+      border:0;
+      border-radius:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .floating {
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:2600;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .float {
+      min-width:154px;
+      padding:13px 17px;
+      border-radius:999px;
+      color:white;
+      font-weight:900;
+      text-align:center;
+      box-shadow:0 18px 38px rgba(0,0,0,.22);
+      transition:.22s ease;
+    }
+
+    .float:hover {
+      transform:translateY(-3px);
+    }
+
+    .float.whatsapp {
+      background:#25D366;
+    }
+
+    .float.call {
+      background:var(--ink);
+    }
+
+    footer {
+      background:var(--deep);
+      color:rgba(255,255,255,.76);
+      margin-top:42px;
+      padding:34px 0;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      font-size:14px;
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(28px);
+      transition:.76s ease;
+    }
+
+    .reveal.show {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media(max-width:1080px) {
+      nav {
+        display:none;
+      }
+
+      .hero-grid,
+      .booking-top,
+      .booking-body,
+      .contact-grid {
+        grid-template-columns:1fr;
+      }
+
+      .service-grid {
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .countries-grid {
+        grid-template-columns:repeat(3, 1fr);
+      }
+
+      .country-summary {
+        position:static;
+      }
+    }
+
+    @media(max-width:690px) {
+      .top-line {
+        display:none;
+      }
+
+      .nav {
+        min-height:76px;
+      }
+
+      .brand-logo {
+        width:52px;
+        height:52px;
+      }
+
+      .brand span {
+        display:none;
+      }
+
+      .nav-actions .btn {
+        display:none;
+      }
+
+      .hero {
+        padding:50px 0 40px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.82)),
+          url("logo.jpg") center top 20px / 360px no-repeat;
+        opacity:.46;
+      }
+
+      .stats,
+      .service-grid,
+      .countries-grid,
+      .form-grid {
+        grid-template-columns:1fr;
+      }
+
+      .booking-top,
+      .booking-body,
+      .modal-card {
+        padding:20px;
+      }
+
+      .booking-panel,
+      .modal-card {
+        border-radius:28px;
+      }
+
+      .modal-head h2 {
+        font-size:27px;
+      }
+
+      .floating {
+        right:10px;
+        bottom:10px;
+      }
+
+      .float {
+        min-width:132px;
+        padding:11px 14px;
+        font-size:13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-line">
+    <div class="container top-line-inner">
+      <div>Jalə Plaza, 5-ci mərtəbə · Hər gün 08:00–00:00</div>
+      <div class="top-line-links">
+        <a href="tel:+994506521101">+994 50 652 11 01</a>
+        <a href="tel:+994702555702">+994 70 255 57 02</a>
+        <a href="https://www.instagram.com/aviafly_travel.az/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <div class="brand-logo">
+          <img src="logo.jpg" alt="AviaFly Travel">
+        </div>
+        <div>
+          <strong>AviaFly Travel</strong>
+          <span>Visa · Ticket · Tour</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#services" data-i18n="navServices">Xidmətlər</a>
+        <a href="#booking" data-i18n="navSchengen">Schengen</a>
+        <a href="#contact" data-i18n="navContact">Əlaqə</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang">
+          <button class="active" onclick="setLang('az')">AZ</button>
+          <button onclick="setLang('en')">EN</button>
+          <button onclick="setLang('ru')">RU</button>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow" data-i18n="heroBadge">Premium travel services</div>
+          <h1 data-i18n="heroTitle">Visa və səyahət müraciətlərinizi peşəkar şəkildə yönləndirin.</h1>
+          <p class="hero-lead" data-i18n="heroText">
+            Avia biletlər, tur paketlər, viza dəstəyi, transfer xidməti və qrup turları üçün etibarlı müraciət platforması.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="openCountryModal()" data-i18n="heroChoose">Schengen ölkəsini seç</button>
+            <a class="btn btn-light" href="#contact" data-i18n="heroContact">Əlaqə saxla</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>08:00–00:00</strong>
+              <span data-i18n="stat1">Hər gün xidmət</span>
+            </div>
+            <div class="stat">
+              <strong>Schengen</strong>
+              <span data-i18n="stat2">Viza dəstəyi</span>
+            </div>
+            <div class="stat">
+              <strong>Transfer</strong>
+              <span data-i18n="stat3">Rahat gediş-gəliş</span>
+            </div>
+            <div class="stat">
+              <strong>Group Tours</strong>
+              <span data-i18n="stat4">Qrup turları</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="signature-card reveal">
+          <div class="signature-inner">
+            <h2 data-i18n="cardTitle">Müraciət prosesi bir neçə addımda tamamlanır.</h2>
+            <p data-i18n="cardText">Ölkə seçimi, tarix, sərnişin sayı və passport məlumatları vahid sistem üzərindən göndərilir.</p>
+
+            <div class="process">
+              <div class="process-item">
+                <div class="process-number">1</div>
+                <div>
+                  <strong data-i18n="p1Title">Ölkə seçimi</strong>
+                  <span data-i18n="p1Text">Schengen istiqaməti seçilir.</span>
+                </div>
+              </div>
+
+              <div class="process-item">
+                <div class="process-number">2</div>
+                <div>
+                  <strong data-i18n="p2Title">Müraciət məlumatları</strong>
+                  <span data-i18n="p2Text">Tarix, adam sayı və şəxsi məlumatlar daxil edilir.</span>
+                </div>
+              </div>
+
+              <div class="process-item">
+                <div class="process-number">3</div>
+                <div>
+                  <strong data-i18n="p3Title">Təsdiq</strong>
+                  <span data-i18n="p3Text">Sorğu agentliyə yönləndirilir.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="servicesKicker">Xidmətlər</div>
+          <h2 data-i18n="servicesTitle">Səyahət ehtiyacları üçün tam xidmət yanaşması.</h2>
+          <p data-i18n="servicesText">
+            AviaFly Travel fərdi və qrup səfərləri üçün əsas səyahət xidmətlərini vahid mərkəzdə təqdim edir.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <div class="service reveal">
+            <div class="service-line"></div>
+            <h3 data-i18n="s1Title">Avia biletlər</h3>
+            <p data-i18n="s1Text">İstiqamətinizə uyğun bilet sorğuları və seçimlərin yönləndirilməsi.</p>
+          </div>
+
+          <div class="service reveal">
+            <div class="service-line"></div>
+            <h3 data-i18n="s2Title">Tur paketlər</h3>
+            <p data-i18n="s2Text">Fərqli ölkələr üzrə istirahət və səyahət paketləri.</p>
+          </div>
+
+          <div class="service reveal">
+            <div class="service-line"></div>
+            <h3 data-i18n="s3Title">Viza dəstəyi</h3>
+            <p data-i18n="s3Text">Schengen və digər istiqamətlər üzrə müraciət dəstəyi.</p>
+          </div>
+
+          <div class="service reveal">
+            <div class="service-line"></div>
+            <h3 data-i18n="s4Title">Transfer xidməti</h3>
+            <p data-i18n="s4Text">Səfər zamanı transfer və rahat hərəkət seçimləri.</p>
+          </div>
+
+          <div class="service reveal">
+            <div class="service-line"></div>
+            <h3 data-i18n="s5Title">Qrup turları</h3>
+            <p data-i18n="s5Text">Qrup səfərləri üçün tur planlaması və müraciət yönləndirməsi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="bookingKicker">Müraciət</div>
+          <h2 data-i18n="bookingTitle">Schengen istiqamətini seçin və müraciətinizi tamamlayın.</h2>
+          <p data-i18n="bookingText">
+            Seçilən ölkəyə uyğun məlumatlar formda göstərilir. Müraciət tamamlandıqdan sonra sorğu agentliyə yönləndirilir.
+          </p>
+        </div>
+
+        <div class="booking-panel reveal">
+          <div class="booking-top">
+            <div>
+              <h2 data-i18n="bookingTopTitle">Schengen müraciəti</h2>
+              <p data-i18n="bookingTopText">Ölkə, səfər tarixi, sərnişin sayı və passport məlumatlarını daxil edərək sorğunuzu göndərin.</p>
+            </div>
+
+            <div class="selected-card">
+              <small data-i18n="selectedLabel">Seçilmiş istiqamət</small>
+              <strong id="miniSelectedCountry">Austria</strong>
+              <button class="btn btn-gold" onclick="openCountryModal()" data-i18n="changeCountry">Ölkəni seç</button>
+            </div>
+          </div>
+
+          <div class="booking-body">
+            <aside class="country-summary">
+              <h3 id="selectedCountryTitle">Austria</h3>
+
+              <div class="info-stack">
+                <div class="info-box">
+                  <small data-i18n="visaInfoLabel">Viza məlumatı</small>
+                  <p id="selectedVisaInfo">Viza məlumatı 1</p>
+                </div>
+
+                <div class="info-box">
+                  <small data-i18n="travelInfoLabel">Səfər məlumatları</small>
+                  <p id="selectedTravelInfo">Səfər məlumatları 1</p>
+                </div>
+
+                <div class="price-card">
+                  <span data-i18n="priceLabel">Qiymət:</span>
+                  <span id="selectedPrice">10 AZN</span>
+                </div>
+              </div>
+            </aside>
+
+            <div>
+              <div class="steps">
+                <span class="step active" data-step-dot="1" data-i18n="step1">1. Tarix</span>
+                <span class="step" data-step-dot="2" data-i18n="step2">2. Sərnişin</span>
+                <span class="step" data-step-dot="3" data-i18n="step3">3. Passport</span>
+                <span class="step" data-step-dot="4" data-i18n="step4">4. Təsdiq</span>
+              </div>
+
+              <form id="travelForm">
+                <div class="form-step active" data-step="1">
+                  <h3 class="form-title" data-i18n="dateTitle">Səfər tarixini seçin</h3>
+                  <p class="form-sub" data-i18n="dateSub">Planlaşdırılan səfər tarixini calendar vasitəsilə qeyd edin.</p>
+
+                  <div class="field">
+                    <label for="travelDate" data-i18n="travelDateLabel">Səfər tarixi</label>
+                    <input type="date" id="travelDate" required>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="button" class="btn btn-light" onclick="openCountryModal()" data-i18n="chooseCountryAgain">Ölkə seç</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()" data-i18n="nextBtn">Davam et</button>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                  <h3 class="form-title" data-i18n="peopleTitle">Sərnişin sayını qeyd edin</h3>
+                  <p class="form-sub" data-i18n="peopleSub">Müraciətin neçə nəfər üçün olduğunu daxil edin.</p>
+
+                  <div class="field">
+                    <label for="peopleCount" data-i18n="peopleLabel">Sərnişin sayı</label>
+                    <input type="number" id="peopleCount" min="1" max="30" value="1" required>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn">Geri</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()" data-i18n="nextBtn2">Davam et</button>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                  <h3 class="form-title" data-i18n="passportTitle">Şəxsi və passport məlumatları</h3>
+                  <p class="form-sub" data-i18n="passportSub">Məlumatlar viza və səyahət müraciətinin emalı üçün istifadə olunur.</p>
+
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="fullName" data-i18n="fullNameLabel">Ad Soyad</label>
+                      <input type="text" id="fullName" required>
+                    </div>
+
+                    <div class="field">
+                      <label for="phone" data-i18n="phoneLabel">Telefon</label>
+                      <input type="tel" id="phone" required>
+                    </div>
+
+                    <div class="field full">
+                      <label for="email" data-i18n="emailLabel">Email</label>
+                      <input type="email" id="email">
+                    </div>
+
+                    <div class="field">
+                      <label for="passportFullName" data-i18n="passportNameLabel">Passport üzrə tam ad</label>
+                      <input type="text" id="passportFullName" required>
+                    </div>
+
+                    <div class="field">
+                      <label for="passportNumber" data-i18n="passportNumberLabel">Passport nömrəsi</label>
+                      <input type="text" id="passportNumber" required>
+                    </div>
+
+                    <div class="field">
+                      <label for="dateOfBirth" data-i18n="birthLabel">Doğum tarixi</label>
+                      <input type="date" id="dateOfBirth" required>
+                    </div>
+
+                    <div class="field">
+                      <label for="nationality" data-i18n="nationalityLabel">Vətəndaşlıq</label>
+                      <input type="text" id="nationality" required>
+                    </div>
+
+                    <div class="field">
+                      <label for="passportExpiry" data-i18n="expiryLabel">Passport bitmə tarixi</label>
+                      <input type="date" id="passportExpiry" required>
+                    </div>
+
+                    <div class="field full">
+                      <label for="note" data-i18n="noteLabel">Əlavə qeyd</label>
+                      <textarea id="note"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn2">Geri</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()" data-i18n="nextBtn3">Davam et</button>
+                  </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                  <h3 class="form-title" data-i18n="confirmTitle">Müraciəti təsdiqləyin</h3>
+                  <p class="form-sub" data-i18n="confirmSub">Təsdiqdən sonra müraciət agentliyə göndəriləcək.</p>
+
+                  <div class="info-box">
+                    <small data-i18n="summaryLabel">Seçilən istiqamət</small>
+                    <p id="finalSummary">Austria — 10 AZN</p>
+                  </div>
+
+                  <label class="consent">
+                    <input type="checkbox" id="consent" required>
+                    <span data-i18n="consentText">
+                      Təqdim etdiyim məlumatların düzgün olduğunu təsdiq edirəm və bu məlumatların viza/səyahət xidməti üçün AviaFly Travel-ə göndərilməsinə razıyam.
+                    </span>
+                  </label>
+
+                  <div class="form-actions">
+                    <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn3">Geri</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="submitBtn">Müraciəti göndər</button>
+                  </div>
+
+                  <div id="notice" class="notice"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker" data-i18n="contactKicker">Əlaqə</div>
+          <h2 data-i18n="contactTitle">AviaFly Travel ilə əlaqə saxlayın.</h2>
+          <p data-i18n="contactText">Ofis ünvanı, telefon nömrələri, WhatsApp, Instagram və xəritə məlumatları.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <div class="contact-row">
+              <small data-i18n="addressLabel">Ünvan</small>
+              <p>Jalə Plaza, 5-ci mərtəbə</p>
+            </div>
+
+            <div class="contact-row">
+              <small data-i18n="phoneContactLabel">Telefon</small>
+              <a href="tel:+994506521101">+994 50 652 11 01</a>
+              <a href="tel:+994702555702">+994 70 255 57 02</a>
+            </div>
+
+            <div class="contact-row">
+              <small>WhatsApp</small>
+              <a href="https://wa.me/994506521101" target="_blank">wa.me/994506521101</a>
+            </div>
+
+            <div class="contact-row">
+              <small>Instagram</small>
+              <a href="https://www.instagram.com/aviafly_travel.az/" target="_blank">@aviafly_travel.az</a>
+            </div>
+
+            <div class="contact-row">
+              <small data-i18n="hoursLabel">İş saatları</small>
+              <p>Hər gün · 08:00–00:00</p>
+            </div>
+          </div>
+
+          <iframe class="reveal" src="https://maps.google.com/maps?q=Jal%C9%99%20Plaza%20Baku&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="countryModal">
+    <div class="modal-backdrop" onclick="closeCountryModal()"></div>
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <h2 data-i18n="modalTitle">Schengen istiqamətini seçin</h2>
+          <p data-i18n="modalText">Seçilən istiqamət üzrə məlumatlar müraciət formasına əlavə olunacaq.</p>
+        </div>
+        <button class="close" onclick="closeCountryModal()">×</button>
+      </div>
+
+      <div class="countries-grid" id="countriesGrid"></div>
+    </div>
+  </div>
+
+  <div class="floating">
+    <a class="float whatsapp" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
+    <a class="float call" href="tel:+994506521101" data-i18n="callFloat">Zəng et</a>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 AviaFly Travel</div>
+      <div>Visa · Ticket · Tour Services</div>
+    </div>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwC26mSEPUJ_C4OrrD80ggxc-Mr01zGCo9pUcbT42UD2E8_KgmMZo-H9_LCrE3SXsbvOA/exec";
+
+    const translations = {
+      az: {
+        navServices:"Xidmətlər", navSchengen:"Schengen", navContact:"Əlaqə",
+        heroBadge:"Premium travel services",
+        heroTitle:"Visa və səyahət müraciətlərinizi peşəkar şəkildə yönləndirin.",
+        heroText:"Avia biletlər, tur paketlər, viza dəstəyi, transfer xidməti və qrup turları üçün etibarlı müraciət platforması.",
+        heroChoose:"Schengen ölkəsini seç", heroContact:"Əlaqə saxla",
+        stat1:"Hər gün xidmət", stat2:"Viza dəstəyi", stat3:"Rahat gediş-gəliş", stat4:"Qrup turları",
+        cardTitle:"Müraciət prosesi bir neçə addımda tamamlanır.",
+        cardText:"Ölkə seçimi, tarix, sərnişin sayı və passport məlumatları vahid sistem üzərindən göndərilir.",
+        p1Title:"Ölkə seçimi", p1Text:"Schengen istiqaməti seçilir.",
+        p2Title:"Müraciət məlumatları", p2Text:"Tarix, adam sayı və şəxsi məlumatlar daxil edilir.",
+        p3Title:"Təsdiq", p3Text:"Sorğu agentliyə yönləndirilir.",
+        servicesKicker:"Xidmətlər", servicesTitle:"Səyahət ehtiyacları üçün tam xidmət yanaşması.",
+        servicesText:"AviaFly Travel fərdi və qrup səfərləri üçün əsas səyahət xidmətlərini vahid mərkəzdə təqdim edir.",
+        s1Title:"Avia biletlər", s1Text:"İstiqamətinizə uyğun bilet sorğuları və seçimlərin yönləndirilməsi.",
+        s2Title:"Tur paketlər", s2Text:"Fərqli ölkələr üzrə istirahət və səyahət paketləri.",
+        s3Title:"Viza dəstəyi", s3Text:"Schengen və digər istiqamətlər üzrə müraciət dəstəyi.",
+        s4Title:"Transfer xidməti", s4Text:"Səfər zamanı transfer və rahat hərəkət seçimləri.",
+        s5Title:"Qrup turları", s5Text:"Qrup səfərləri üçün tur planlaması və müraciət yönləndirməsi.",
+        bookingKicker:"Müraciət", bookingTitle:"Schengen istiqamətini seçin və müraciətinizi tamamlayın.",
+        bookingText:"Seçilən ölkəyə uyğun məlumatlar formda göstərilir. Müraciət tamamlandıqdan sonra sorğu agentliyə yönləndirilir.",
+        bookingTopTitle:"Schengen müraciəti", bookingTopText:"Ölkə, səfər tarixi, sərnişin sayı və passport məlumatlarını daxil edərək sorğunuzu göndərin.",
+        selectedLabel:"Seçilmiş istiqamət", changeCountry:"Ölkəni seç",
+        visaInfoLabel:"Viza məlumatı", travelInfoLabel:"Səfər məlumatları", priceLabel:"Qiymət:",
+        step1:"1. Tarix", step2:"2. Sərnişin", step3:"3. Passport", step4:"4. Təsdiq",
+        dateTitle:"Səfər tarixini seçin", dateSub:"Planlaşdırılan səfər tarixini calendar vasitəsilə qeyd edin.", travelDateLabel:"Səfər tarixi",
+        chooseCountryAgain:"Ölkə seç", nextBtn:"Davam et", nextBtn2:"Davam et", nextBtn3:"Davam et",
+        peopleTitle:"Sərnişin sayını qeyd edin", peopleSub:"Müraciətin neçə nəfər üçün olduğunu daxil edin.", peopleLabel:"Sərnişin sayı",
+        backBtn:"Geri", backBtn2:"Geri", backBtn3:"Geri",
+        passportTitle:"Şəxsi və passport məlumatları", passportSub:"Məlumatlar viza və səyahət müraciətinin emalı üçün istifadə olunur.",
+        fullNameLabel:"Ad Soyad", phoneLabel:"Telefon", emailLabel:"Email", passportNameLabel:"Passport üzrə tam ad",
+        passportNumberLabel:"Passport nömrəsi", birthLabel:"Doğum tarixi", nationalityLabel:"Vətəndaşlıq", expiryLabel:"Passport bitmə tarixi", noteLabel:"Əlavə qeyd",
+        confirmTitle:"Müraciəti təsdiqləyin", confirmSub:"Təsdiqdən sonra müraciət agentliyə göndəriləcək.", summaryLabel:"Seçilən istiqamət",
+        consentText:"Təqdim etdiyim məlumatların düzgün olduğunu təsdiq edirəm və bu məlumatların viza/səyahət xidməti üçün AviaFly Travel-ə göndərilməsinə razıyam.",
+        submitBtn:"Müraciəti göndər",
+        contactKicker:"Əlaqə", contactTitle:"AviaFly Travel ilə əlaqə saxlayın.", contactText:"Ofis ünvanı, telefon nömrələri, WhatsApp, Instagram və xəritə məlumatları.",
+        addressLabel:"Ünvan", phoneContactLabel:"Telefon", hoursLabel:"İş saatları",
+        modalTitle:"Schengen istiqamətini seçin", modalText:"Seçilən istiqamət üzrə məlumatlar müraciət formasına əlavə olunacaq.",
+        callFloat:"Zəng et"
+      },
+      en: {
+        navServices:"Services", navSchengen:"Schengen", navContact:"Contact",
+        heroBadge:"Premium travel services",
+        heroTitle:"Manage visa and travel requests with a professional process.",
+        heroText:"A reliable request platform for flight tickets, tour packages, visa support, transfer services and group tours.",
+        heroChoose:"Choose Schengen country", heroContact:"Contact us",
+        stat1:"Daily service", stat2:"Visa support", stat3:"Comfort transfer", stat4:"Group tours",
+        cardTitle:"The request process is completed in a few steps.",
+        cardText:"Country, date, passenger count and passport details are submitted through one structured flow.",
+        p1Title:"Country selection", p1Text:"A Schengen destination is selected.",
+        p2Title:"Request details", p2Text:"Date, passenger count and personal information are entered.",
+        p3Title:"Confirmation", p3Text:"The request is forwarded to the agency.",
+        servicesKicker:"Services", servicesTitle:"A complete service approach for travel needs.",
+        servicesText:"AviaFly Travel provides key travel services for individual and group trips in one place.",
+        s1Title:"Flight tickets", s1Text:"Ticket requests and route options for your destination.",
+        s2Title:"Tour packages", s2Text:"Holiday and travel packages across different countries.",
+        s3Title:"Visa support", s3Text:"Application support for Schengen and other destinations.",
+        s4Title:"Transfer service", s4Text:"Comfortable transfer options during travel.",
+        s5Title:"Group tours", s5Text:"Tour planning and request guidance for group trips.",
+        bookingKicker:"Request", bookingTitle:"Choose a Schengen destination and complete your request.",
+        bookingText:"Information for the selected country is shown in the form. After completion, the request is forwarded to the agency.",
+        bookingTopTitle:"Schengen request", bookingTopText:"Enter country, travel date, passenger count and passport details to send your request.",
+        selectedLabel:"Selected destination", changeCountry:"Choose country",
+        visaInfoLabel:"Visa information", travelInfoLabel:"Travel information", priceLabel:"Price:",
+        step1:"1. Date", step2:"2. Passenger", step3:"3. Passport", step4:"4. Confirm",
+        dateTitle:"Select travel date", dateSub:"Choose the planned travel date using the calendar.", travelDateLabel:"Travel date",
+        chooseCountryAgain:"Choose country", nextBtn:"Continue", nextBtn2:"Continue", nextBtn3:"Continue",
+        peopleTitle:"Enter passenger count", peopleSub:"Enter how many people the request is for.", peopleLabel:"Passenger count",
+        backBtn:"Back", backBtn2:"Back", backBtn3:"Back",
+        passportTitle:"Personal and passport information", passportSub:"The information is used to process visa and travel requests.",
+        fullNameLabel:"Full name", phoneLabel:"Phone", emailLabel:"Email", passportNameLabel:"Passport full name",
+        passportNumberLabel:"Passport number", birthLabel:"Date of birth", nationalityLabel:"Nationality", expiryLabel:"Passport expiry date", noteLabel:"Additional note",
+        confirmTitle:"Confirm request", confirmSub:"After confirmation, the request will be sent to the agency.", summaryLabel:"Selected destination",
+        consentText:"I confirm that the information provided is correct and agree that it is sent to AviaFly Travel for visa/travel service purposes.",
+        submitBtn:"Send request",
+        contactKicker:"Contact", contactTitle:"Contact AviaFly Travel.", contactText:"Office address, phone numbers, WhatsApp, Instagram and map details.",
+        addressLabel:"Address", phoneContactLabel:"Phone", hoursLabel:"Working hours",
+        modalTitle:"Choose Schengen destination", modalText:"Information for the selected destination will be added to the request form.",
+        callFloat:"Call"
+      },
+      ru: {
+        navServices:"Услуги", navSchengen:"Шенген", navContact:"Контакты",
+        heroBadge:"Premium travel services",
+        heroTitle:"Оформляйте визовые и туристические заявки профессионально.",
+        heroText:"Надежная платформа заявок для авиабилетов, турпакетов, визовой поддержки, трансфера и групповых туров.",
+        heroChoose:"Выбрать страну Шенгена", heroContact:"Связаться",
+        stat1:"Ежедневно", stat2:"Визовая поддержка", stat3:"Комфортный трансфер", stat4:"Групповые туры",
+        cardTitle:"Процесс заявки завершается за несколько шагов.",
+        cardText:"Страна, дата, количество пассажиров и паспортные данные отправляются через единую форму.",
+        p1Title:"Выбор страны", p1Text:"Выбирается направление Шенгена.",
+        p2Title:"Данные заявки", p2Text:"Вводятся дата, количество людей и личные данные.",
+        p3Title:"Подтверждение", p3Text:"Заявка направляется в агентство.",
+        servicesKicker:"Услуги", servicesTitle:"Полный подход к туристическим услугам.",
+        servicesText:"AviaFly Travel предоставляет ключевые услуги для индивидуальных и групповых поездок.",
+        s1Title:"Авиабилеты", s1Text:"Запросы билетов и варианты маршрута для вашего направления.",
+        s2Title:"Турпакеты", s2Text:"Пакеты отдыха и путешествий по разным странам.",
+        s3Title:"Визовая поддержка", s3Text:"Поддержка заявок по Шенгену и другим направлениям.",
+        s4Title:"Трансфер", s4Text:"Комфортные варианты трансфера во время поездки.",
+        s5Title:"Групповые туры", s5Text:"Планирование и сопровождение заявок для групповых поездок.",
+        bookingKicker:"Заявка", bookingTitle:"Выберите направление Шенгена и заполните заявку.",
+        bookingText:"Информация по выбранной стране отображается в форме. После заполнения заявка направляется в агентство.",
+        bookingTopTitle:"Заявка на Шенген", bookingTopText:"Введите страну, дату поездки, количество пассажиров и паспортные данные.",
+        selectedLabel:"Выбранное направление", changeCountry:"Выбрать страну",
+        visaInfoLabel:"Визовая информация", travelInfoLabel:"Информация о поездке", priceLabel:"Цена:",
+        step1:"1. Дата", step2:"2. Пассажиры", step3:"3. Паспорт", step4:"4. Подтверждение",
+        dateTitle:"Выберите дату поездки", dateSub:"Выберите планируемую дату поездки в календаре.", travelDateLabel:"Дата поездки",
+        chooseCountryAgain:"Выбрать страну", nextBtn:"Продолжить", nextBtn2:"Продолжить", nextBtn3:"Продолжить",
+        peopleTitle:"Укажите количество пассажиров", peopleSub:"Укажите, на сколько людей оформляется заявка.", peopleLabel:"Количество пассажиров",
+        backBtn:"Назад", backBtn2:"Назад", backBtn3:"Назад",
+        passportTitle:"Личные и паспортные данные", passportSub:"Информация используется для обработки визовой и туристической заявки.",
+        fullNameLabel:"Имя и фамилия", phoneLabel:"Телефон", emailLabel:"Email", passportNameLabel:"Полное имя по паспорту",
+        passportNumberLabel:"Номер паспорта", birthLabel:"Дата рождения", nationalityLabel:"Гражданство", expiryLabel:"Срок паспорта", noteLabel:"Дополнительная заметка",
+        confirmTitle:"Подтвердите заявку", confirmSub:"После подтверждения заявка будет отправлена в агентство.", summaryLabel:"Выбранное направление",
+        consentText:"Я подтверждаю правильность предоставленной информации и соглашаюсь на отправку данных в AviaFly Travel для визовой/туристической услуги.",
+        submitBtn:"Отправить заявку",
+        contactKicker:"Контакты", contactTitle:"Свяжитесь с AviaFly Travel.", contactText:"Адрес офиса, телефоны, WhatsApp, Instagram и карта.",
+        addressLabel:"Адрес", phoneContactLabel:"Телефон", hoursLabel:"Часы работы",
+        modalTitle:"Выберите направление Шенгена", modalText:"Информация по выбранному направлению будет добавлена в форму заявки.",
+        callFloat:"Позвонить"
+      }
+    };
+
+    const countries = [
+  {
+    "name": "Austria",
+    "flag": "🇦🇹",
+    "visaInfo": "Viza məlumatı 1",
+    "travelInfo": "Səfər məlumatları 1",
+    "price": "10 AZN"
+  },
+  {
+    "name": "Belgium",
+    "flag": "🇧🇪",
+    "visaInfo": "Viza məlumatı 2",
+    "travelInfo": "Səfər məlumatları 2",
+    "price": "20 AZN"
+  },
+  {
+    "name": "Bulgaria",
+    "flag": "🇧🇬",
+    "visaInfo": "Viza məlumatı 3",
+    "travelInfo": "Səfər məlumatları 3",
+    "price": "30 AZN"
+  },
+  {
+    "name": "Croatia",
+    "flag": "🇭🇷",
+    "visaInfo": "Viza məlumatı 4",
+    "travelInfo": "Səfər məlumatları 4",
+    "price": "40 AZN"
+  },
+  {
+    "name": "Czech Republic",
+    "flag": "🇨🇿",
+    "visaInfo": "Viza məlumatı 5",
+    "travelInfo": "Səfər məlumatları 5",
+    "price": "50 AZN"
+  },
+  {
+    "name": "Denmark",
+    "flag": "🇩🇰",
+    "visaInfo": "Viza məlumatı 6",
+    "travelInfo": "Səfər məlumatları 6",
+    "price": "60 AZN"
+  },
+  {
+    "name": "Estonia",
+    "flag": "🇪🇪",
+    "visaInfo": "Viza məlumatı 7",
+    "travelInfo": "Səfər məlumatları 7",
+    "price": "70 AZN"
+  },
+  {
+    "name": "Finland",
+    "flag": "🇫🇮",
+    "visaInfo": "Viza məlumatı 8",
+    "travelInfo": "Səfər məlumatları 8",
+    "price": "80 AZN"
+  },
+  {
+    "name": "France",
+    "flag": "🇫🇷",
+    "visaInfo": "Viza məlumatı 9",
+    "travelInfo": "Səfər məlumatları 9",
+    "price": "90 AZN"
+  },
+  {
+    "name": "Germany",
+    "flag": "🇩🇪",
+    "visaInfo": "Viza məlumatı 10",
+    "travelInfo": "Səfər məlumatları 10",
+    "price": "100 AZN"
+  },
+  {
+    "name": "Greece",
+    "flag": "🇬🇷",
+    "visaInfo": "Viza məlumatı 11",
+    "travelInfo": "Səfər məlumatları 11",
+    "price": "110 AZN"
+  },
+  {
+    "name": "Hungary",
+    "flag": "🇭🇺",
+    "visaInfo": "Viza məlumatı 12",
+    "travelInfo": "Səfər məlumatları 12",
+    "price": "120 AZN"
+  },
+  {
+    "name": "Iceland",
+    "flag": "🇮🇸",
+    "visaInfo": "Viza məlumatı 13",
+    "travelInfo": "Səfər məlumatları 13",
+    "price": "130 AZN"
+  },
+  {
+    "name": "Italy",
+    "flag": "🇮🇹",
+    "visaInfo": "Viza məlumatı 14",
+    "travelInfo": "Səfər məlumatları 14",
+    "price": "140 AZN"
+  },
+  {
+    "name": "Latvia",
+    "flag": "🇱🇻",
+    "visaInfo": "Viza məlumatı 15",
+    "travelInfo": "Səfər məlumatları 15",
+    "price": "150 AZN"
+  },
+  {
+    "name": "Liechtenstein",
+    "flag": "🇱🇮",
+    "visaInfo": "Viza məlumatı 16",
+    "travelInfo": "Səfər məlumatları 16",
+    "price": "160 AZN"
+  },
+  {
+    "name": "Lithuania",
+    "flag": "🇱🇹",
+    "visaInfo": "Viza məlumatı 17",
+    "travelInfo": "Səfər məlumatları 17",
+    "price": "170 AZN"
+  },
+  {
+    "name": "Luxembourg",
+    "flag": "🇱🇺",
+    "visaInfo": "Viza məlumatı 18",
+    "travelInfo": "Səfər məlumatları 18",
+    "price": "180 AZN"
+  },
+  {
+    "name": "Malta",
+    "flag": "🇲🇹",
+    "visaInfo": "Viza məlumatı 19",
+    "travelInfo": "Səfər məlumatları 19",
+    "price": "190 AZN"
+  },
+  {
+    "name": "Netherlands",
+    "flag": "🇳🇱",
+    "visaInfo": "Viza məlumatı 20",
+    "travelInfo": "Səfər məlumatları 20",
+    "price": "200 AZN"
+  },
+  {
+    "name": "Norway",
+    "flag": "🇳🇴",
+    "visaInfo": "Viza məlumatı 21",
+    "travelInfo": "Səfər məlumatları 21",
+    "price": "210 AZN"
+  },
+  {
+    "name": "Poland",
+    "flag": "🇵🇱",
+    "visaInfo": "Viza məlumatı 22",
+    "travelInfo": "Səfər məlumatları 22",
+    "price": "220 AZN"
+  },
+  {
+    "name": "Portugal",
+    "flag": "🇵🇹",
+    "visaInfo": "Viza məlumatı 23",
+    "travelInfo": "Səfər məlumatları 23",
+    "price": "230 AZN"
+  },
+  {
+    "name": "Romania",
+    "flag": "🇷🇴",
+    "visaInfo": "Viza məlumatı 24",
+    "travelInfo": "Səfər məlumatları 24",
+    "price": "240 AZN"
+  },
+  {
+    "name": "Slovakia",
+    "flag": "🇸🇰",
+    "visaInfo": "Viza məlumatı 25",
+    "travelInfo": "Səfər məlumatları 25",
+    "price": "250 AZN"
+  },
+  {
+    "name": "Slovenia",
+    "flag": "🇸🇮",
+    "visaInfo": "Viza məlumatı 26",
+    "travelInfo": "Səfər məlumatları 26",
+    "price": "260 AZN"
+  },
+  {
+    "name": "Spain",
+    "flag": "🇪🇸",
+    "visaInfo": "Viza məlumatı 27",
+    "travelInfo": "Səfər məlumatları 27",
+    "price": "270 AZN"
+  },
+  {
+    "name": "Sweden",
+    "flag": "🇸🇪",
+    "visaInfo": "Viza məlumatı 28",
+    "travelInfo": "Səfər məlumatları 28",
+    "price": "280 AZN"
+  },
+  {
+    "name": "Switzerland",
+    "flag": "🇨🇭",
+    "visaInfo": "Viza məlumatı 29",
+    "travelInfo": "Səfər məlumatları 29",
+    "price": "290 AZN"
+  }
+];
+
+    let currentLang = localStorage.getItem("aviaflyLang") || "az";
+    let selectedCountry = countries[0];
+    let currentStep = 1;
+
+    const modal = document.getElementById("countryModal");
+    const countriesGrid = document.getElementById("countriesGrid");
+    const selectedCountryTitle = document.getElementById("selectedCountryTitle");
+    const miniSelectedCountry = document.getElementById("miniSelectedCountry");
+    const selectedVisaInfo = document.getElementById("selectedVisaInfo");
+    const selectedTravelInfo = document.getElementById("selectedTravelInfo");
+    const selectedPrice = document.getElementById("selectedPrice");
+    const finalSummary = document.getElementById("finalSummary");
+    const notice = document.getElementById("notice");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem("aviaflyLang", lang);
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      document.querySelectorAll(".lang button").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll(".lang button").forEach(btn => {
+        if (btn.textContent.toLowerCase() === lang) {
+          btn.classList.add("active");
+        }
+      });
+    }
+
+    function openCountryModal() {
+      modal.classList.add("show");
+      document.body.classList.add("modal-open");
+      renderCountries();
+    }
+
+    function closeCountryModal() {
+      modal.classList.remove("show");
+      document.body.classList.remove("modal-open");
+    }
+
+    function renderCountries() {
+      countriesGrid.innerHTML = "";
+
+      countries.forEach(country => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "country-card" + (country.name === selectedCountry.name ? " active" : "");
+
+        button.innerHTML = `
+          <div class="flag-circle">${country.flag}</div>
+          <strong>${country.name}</strong>
+          <span>${country.price}</span>
+        `;
+
+        button.addEventListener("click", () => {
+          selectedCountry = country;
+          updateSelectedInfo();
+          closeCountryModal();
+          document.getElementById("booking").scrollIntoView({ behavior:"smooth", block:"start" });
+        });
+
+        countriesGrid.appendChild(button);
+      });
+    }
+
+    function updateSelectedInfo() {
+      selectedCountryTitle.textContent = selectedCountry.flag + " " + selectedCountry.name;
+      miniSelectedCountry.textContent = selectedCountry.flag + " " + selectedCountry.name;
+      selectedVisaInfo.textContent = selectedCountry.visaInfo;
+      selectedTravelInfo.textContent = selectedCountry.travelInfo;
+      selectedPrice.textContent = selectedCountry.price;
+      finalSummary.textContent = selectedCountry.name + " — " + selectedCountry.price;
+    }
+
+    function showStep(step) {
+      currentStep = step;
+
+      document.querySelectorAll(".form-step").forEach(section => section.classList.remove("active"));
+      document.querySelector(`[data-step="${step}"]`).classList.add("active");
+
+      document.querySelectorAll(".step").forEach(dot => dot.classList.remove("active"));
+      document.querySelector(`[data-step-dot="${step}"]`).classList.add("active");
+
+      updateSelectedInfo();
+    }
+
+    function nextStep() {
+      if (currentStep === 1 && !document.getElementById("travelDate").value) {
+        alert(currentLang === "az" ? "Zəhmət olmasa səfər tarixini seçin." : currentLang === "ru" ? "Пожалуйста, выберите дату поездки." : "Please select travel date.");
+        return;
+      }
+
+      if (currentStep === 2 && !document.getElementById("peopleCount").value) {
+        alert(currentLang === "az" ? "Zəhmət olmasa sərnişin sayını qeyd edin." : currentLang === "ru" ? "Пожалуйста, укажите количество пассажиров." : "Please enter passenger count.");
+        return;
+      }
+
+      if (currentStep === 3) {
+        const required = [
+          "fullName",
+          "phone",
+          "passportFullName",
+          "passportNumber",
+          "dateOfBirth",
+          "nationality",
+          "passportExpiry"
+        ];
+
+        for (const id of required) {
+          if (!document.getElementById(id).value.trim()) {
+            alert(currentLang === "az" ? "Zəhmət olmasa bütün vacib məlumatları doldurun." : currentLang === "ru" ? "Пожалуйста, заполните все обязательные поля." : "Please complete all required fields.");
+            return;
+          }
+        }
+      }
+
+      if (currentStep < 4) {
+        showStep(currentStep + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        showStep(currentStep - 1);
+      }
+    }
+
+    function createOrderId() {
+      const now = new Date();
+      const datePart =
+        now.getFullYear().toString() +
+        String(now.getMonth() + 1).padStart(2, "0") +
+        String(now.getDate()).padStart(2, "0");
+
+      const randomPart = Math.floor(10000 + Math.random() * 90000);
+      return "TRV-" + datePart + "-" + randomPart;
+    }
+
+    function showNotice(type, message) {
+      notice.className = "notice " + type;
+      notice.textContent = message;
+    }
+
+    function collectFormData() {
+      const orderId = createOrderId();
+
+      return {
+        orderId: orderId,
+        selectedCountry: selectedCountry.name,
+        visaInfo: selectedCountry.visaInfo,
+        travelInfo: selectedCountry.travelInfo,
+        price: selectedCountry.price,
+        travelDate: document.getElementById("travelDate").value,
+        peopleCount: document.getElementById("peopleCount").value,
+        fullName: document.getElementById("fullName").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        passportFullName: document.getElementById("passportFullName").value.trim(),
+        passportNumber: document.getElementById("passportNumber").value.trim(),
+        dateOfBirth: document.getElementById("dateOfBirth").value,
+        nationality: document.getElementById("nationality").value.trim(),
+        passportExpiry: document.getElementById("passportExpiry").value,
+        note: document.getElementById("note").value.trim(),
+        consent: document.getElementById("consent").checked ? "Yes" : "No"
+      };
+    }
+
+    document.getElementById("travelForm").addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      if (!document.getElementById("consent").checked) {
+        showNotice("error", currentLang === "az" ? "Müraciəti göndərmək üçün razılıq seçilməlidir." : currentLang === "ru" ? "Для отправки заявки требуется согласие." : "Consent is required to submit the request.");
+        return;
+      }
+
+      const data = collectFormData();
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = currentLang === "az" ? "Göndərilir..." : currentLang === "ru" ? "Отправляется..." : "Sending...";
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method:"POST",
+          mode:"no-cors",
+          headers:{
+            "Content-Type":"text/plain;charset=utf-8"
+          },
+          body:JSON.stringify(data)
+        });
+
+        const successText = currentLang === "az"
+          ? "Müraciətiniz qəbul edildi. Order ID: " + data.orderId + ". Menecer sizinlə əlaqə saxlayacaq."
+          : currentLang === "ru"
+            ? "Ваша заявка принята. Order ID: " + data.orderId + ". Менеджер свяжется с вами."
+            : "Your request has been received. Order ID: " + data.orderId + ". The manager will contact you.";
+
+        showNotice("success", successText);
+        document.getElementById("travelForm").reset();
+        showStep(1);
+      } catch (error) {
+        showNotice("error", currentLang === "az" ? "Göndərmə zamanı problem oldu. Zəhmət olmasa yenidən yoxlayın." : currentLang === "ru" ? "Произошла ошибка отправки. Попробуйте еще раз." : "There was a sending problem. Please try again.");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = translations[currentLang].submitBtn;
+      }
+    });
+
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeCountryModal();
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold:.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    setLang(currentLang);
+    updateSelectedInfo();
+  </script>
+</body>
+</html>
