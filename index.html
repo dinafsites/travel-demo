@@ -12,17 +12,17 @@
 
   <style>
     :root {
-      --ink:#071527;
-      --ink-2:#0c2442;
-      --deep:#06111f;
-      --paper:#fbfaf6;
-      --soft:#f2efe8;
+      --ink:#0B1623;
+      --ink-2:#14263A;
+      --deep:#080F18;
+      --paper:#F7F3EC;
+      --soft:#EFE8DC;
       --card:#ffffff;
       --muted:#657084;
       --line:rgba(7,21,39,.12);
-      --gold:#c9a968;
-      --gold-2:#e8d3a4;
-      --green:#1c8b4d;
+      --gold:#B9935A;
+      --gold-2:#D9BF8C;
+      --green:#2E6B4F;
       --danger:#b42318;
       --shadow:0 26px 80px rgba(7,21,39,.16);
       --shadow-soft:0 18px 45px rgba(7,21,39,.09);
@@ -230,20 +230,8 @@
 
     .btn-primary {
       color:white;
-      background:linear-gradient(135deg, var(--green), #0f6f3b);
+      background:linear-gradient(135deg, #2E6B4F, #1F4F39);
       box-shadow:0 18px 38px rgba(28,139,77,.25);
-    }
-
-    .btn-dark {
-      color:white;
-      background:linear-gradient(135deg, var(--ink), var(--ink-2));
-      box-shadow:var(--shadow-soft);
-    }
-
-    .btn-gold {
-      color:#101828;
-      background:linear-gradient(135deg, var(--gold-2), var(--gold));
-      box-shadow:0 18px 38px rgba(201,169,104,.26);
     }
 
     .btn-light {
@@ -253,20 +241,32 @@
       box-shadow:0 12px 26px rgba(7,21,39,.06);
     }
 
-    .hero {
-      position:relative;
-      padding:86px 0 64px;
-      overflow:hidden;
+    .btn-gold {
+      color:#101828;
+      background:linear-gradient(135deg, #D9BF8C, #B9935A);
+      box-shadow:0 18px 38px rgba(201,169,104,.26);
     }
 
-    .hero::before {
+    .hero {
+      position:relative;
+      padding:104px 0 82px;
+      overflow:hidden;
+      min-height:720px;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(90deg, rgba(8,15,24,.92) 0%, rgba(8,15,24,.78) 40%, rgba(8,15,24,.38) 72%, rgba(8,15,24,.18) 100%),
+        url("hero-bg.jpg") center right / cover no-repeat;
+      color:white;
+    }
+
+    .hero::after {
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(90deg, rgba(255,255,255,.98), rgba(255,255,255,.82), rgba(255,255,255,.58)),
-        url("logo.jpg") right 8% center / 560px no-repeat;
-      opacity:.62;
+        radial-gradient(circle at 18% 24%, rgba(201,169,104,.18), transparent 26%),
+        linear-gradient(180deg, rgba(6,17,31,.08), rgba(6,17,31,.34));
       pointer-events:none;
     }
 
@@ -277,6 +277,7 @@
       grid-template-columns:1.05fr .95fr;
       gap:38px;
       align-items:center;
+      width:100%;
     }
 
     .eyebrow {
@@ -285,14 +286,15 @@
       gap:10px;
       padding:10px 14px;
       border-radius:999px;
-      background:rgba(201,169,104,.13);
-      border:1px solid rgba(201,169,104,.24);
-      color:#735622;
+      background:rgba(255,255,255,.11);
+      border:1px solid rgba(255,255,255,.16);
+      color:var(--gold-2);
       font-size:12px;
       font-weight:900;
       letter-spacing:.12em;
       text-transform:uppercase;
       margin-bottom:20px;
+      backdrop-filter:blur(10px);
     }
 
     h1 {
@@ -300,13 +302,14 @@
       line-height:.94;
       letter-spacing:-.065em;
       font-weight:900;
-      color:var(--ink);
-      max-width:850px;
+      color:white;
+      max-width:880px;
       margin-bottom:22px;
+      text-shadow:0 16px 44px rgba(0,0,0,.25);
     }
 
     .hero-lead {
-      color:#46566d;
+      color:rgba(255,255,255,.82);
       font-size:clamp(17px, 2vw, 21px);
       max-width:720px;
       margin-bottom:30px;
@@ -328,37 +331,38 @@
     }
 
     .stat {
-      background:rgba(255,255,255,.78);
-      border:1px solid rgba(7,21,39,.09);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.14);
       border-radius:19px;
       padding:15px;
-      box-shadow:0 14px 32px rgba(7,21,39,.07);
+      backdrop-filter:blur(12px);
     }
 
     .stat strong {
       display:block;
       font-size:17px;
-      color:var(--ink);
+      color:white;
       line-height:1.1;
     }
 
     .stat span {
       display:block;
       margin-top:5px;
-      color:var(--muted);
+      color:rgba(255,255,255,.65);
       font-size:12px;
       font-weight:700;
     }
 
     .signature-card {
-      background:linear-gradient(145deg, rgba(7,21,39,.98), rgba(12,36,66,.97));
+      background:rgba(7,21,39,.74);
       border-radius:38px;
       padding:32px;
       color:white;
       position:relative;
       overflow:hidden;
       box-shadow:var(--shadow);
-      border:1px solid rgba(255,255,255,.09);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(18px);
     }
 
     .signature-card::before {
@@ -370,17 +374,6 @@
       top:-150px;
       border-radius:50%;
       background:radial-gradient(circle, rgba(201,169,104,.34), transparent 62%);
-    }
-
-    .signature-card::after {
-      content:"";
-      position:absolute;
-      left:-120px;
-      bottom:-170px;
-      width:340px;
-      height:340px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(28,139,77,.22), transparent 64%);
     }
 
     .signature-inner {
@@ -423,7 +416,7 @@
       display:grid;
       place-items:center;
       border-radius:50%;
-      background:linear-gradient(135deg, var(--gold-2), var(--gold));
+      background:linear-gradient(135deg, #D9BF8C, #B9935A);
       color:#101828;
       font-size:13px;
       font-weight:900;
@@ -452,7 +445,7 @@
     }
 
     .kicker {
-      color:#0f6f3b;
+      color:#2E6B4F;
       font-size:13px;
       font-weight:900;
       letter-spacing:.12em;
@@ -501,7 +494,7 @@
       width:42px;
       height:3px;
       border-radius:999px;
-      background:linear-gradient(90deg, var(--green), var(--gold));
+      background:linear-gradient(90deg, #2E6B4F, #B9935A);
       margin-bottom:18px;
     }
 
@@ -567,12 +560,28 @@
       margin-bottom:8px;
     }
 
-    .selected-card strong {
+    .selected-row {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .selected-row strong {
       display:block;
       font-size:24px;
       line-height:1.15;
       letter-spacing:-.025em;
-      margin-bottom:14px;
+    }
+
+    .small-flag {
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid rgba(255,255,255,.75);
+      box-shadow:0 10px 22px rgba(0,0,0,.18);
+      background:white;
     }
 
     .booking-body {
@@ -592,12 +601,28 @@
       padding:24px;
     }
 
-    .country-summary h3 {
+    .country-title-row {
+      display:flex;
+      align-items:center;
+      gap:13px;
+      margin-bottom:16px;
+    }
+
+    .country-title-row img {
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid white;
+      box-shadow:0 10px 25px rgba(7,21,39,.15);
+      background:white;
+    }
+
+    .country-title-row h3 {
       font-size:27px;
       line-height:1.08;
       letter-spacing:-.04em;
       color:var(--ink);
-      margin-bottom:16px;
     }
 
     .info-stack {
@@ -615,7 +640,7 @@
 
     .info-box small {
       display:block;
-      color:#0f6f3b;
+      color:#2E6B4F;
       font-size:12px;
       font-weight:900;
       letter-spacing:.10em;
@@ -629,7 +654,7 @@
     }
 
     .price-card {
-      background:linear-gradient(135deg, var(--gold-2), var(--gold));
+      background:linear-gradient(135deg, #D9BF8C, #B9935A);
       color:#101828;
       border-radius:22px;
       padding:18px;
@@ -656,7 +681,7 @@
 
     .step.active {
       color:white;
-      background:linear-gradient(135deg, var(--green), #0f6f3b);
+      background:linear-gradient(135deg, #2E6B4F, #1F4F39);
     }
 
     .form-step {
@@ -902,16 +927,15 @@
     }
 
     .flag-circle {
-      width:66px;
-      height:66px;
+      width:70px;
+      height:70px;
       border-radius:50%;
-      display:grid;
-      place-items:center;
+      display:block;
       margin:0 auto 11px;
-      font-size:34px;
-      background:linear-gradient(180deg, #f9fafb, #eef1f3);
-      border:1px solid rgba(7,21,39,.10);
-      box-shadow:inset 0 0 0 5px rgba(255,255,255,.6);
+      background:white;
+      border:4px solid #f3dfb2;
+      box-shadow:0 10px 26px rgba(7,21,39,.18), inset 0 0 0 2px rgba(255,255,255,.9);
+      object-fit:cover;
     }
 
     .country-card strong {
@@ -923,7 +947,7 @@
     }
 
     .country-card span {
-      color:#0f6f3b;
+      color:#2E6B4F;
       font-size:13px;
       font-weight:900;
     }
@@ -958,7 +982,7 @@
 
     .contact-row small {
       display:block;
-      color:#0f6f3b;
+      color:#2E6B4F;
       font-size:12px;
       font-weight:900;
       letter-spacing:.10em;
@@ -1042,6 +1066,398 @@
       transform:translateY(0);
     }
 
+
+    .why-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .why-card {
+      background:rgba(255,255,255,.86);
+      border:1px solid var(--line);
+      border-radius:32px;
+      padding:30px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .why-card.dark {
+      background:linear-gradient(145deg, var(--ink), var(--ink-2));
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .why-card.dark::after {
+      content:"";
+      position:absolute;
+      width:320px;
+      height:320px;
+      right:-140px;
+      top:-130px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(185,147,90,.30), transparent 64%);
+    }
+
+    .why-card.dark > * {
+      position:relative;
+      z-index:2;
+    }
+
+    .why-card h3 {
+      font-size:30px;
+      line-height:1.08;
+      letter-spacing:-.045em;
+      margin-bottom:14px;
+    }
+
+    .why-card p {
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .why-card.dark p {
+      color:rgba(255,255,255,.72);
+    }
+
+    .quality-list {
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .quality-item {
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px;
+      border-radius:18px;
+      background:#f8f6f0;
+      border:1px solid rgba(7,21,39,.08);
+    }
+
+    .why-card.dark .quality-item {
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.12);
+    }
+
+    .quality-mark {
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      margin-top:8px;
+      background:#B9935A;
+      flex:0 0 auto;
+    }
+
+    .quality-item strong {
+      display:block;
+      color:var(--ink);
+      margin-bottom:3px;
+    }
+
+    .why-card.dark .quality-item strong {
+      color:white;
+    }
+
+    .quality-item span {
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .why-card.dark .quality-item span {
+      color:rgba(255,255,255,.66);
+    }
+
+    .timeline {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+      counter-reset:steps;
+    }
+
+    .timeline-card {
+      counter-increment:steps;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .timeline-card::before {
+      content:"0" counter(steps);
+      display:block;
+      color:#B9935A;
+      font-weight:900;
+      letter-spacing:-.04em;
+      font-size:34px;
+      line-height:1;
+      margin-bottom:18px;
+    }
+
+    .timeline-card h3 {
+      font-size:20px;
+      letter-spacing:-.03em;
+      line-height:1.15;
+      margin-bottom:9px;
+      color:var(--ink);
+    }
+
+    .timeline-card p {
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .docs-panel {
+      background:linear-gradient(145deg, #0B1623, #14263A);
+      color:white;
+      border-radius:38px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:.95fr 1.05fr;
+      border:1px solid rgba(255,255,255,.10);
+    }
+
+    .docs-copy {
+      padding:36px;
+      position:relative;
+    }
+
+    .docs-copy h2 {
+      font-size:clamp(32px, 4vw, 52px);
+      line-height:1.04;
+      letter-spacing:-.055em;
+      margin-bottom:14px;
+    }
+
+    .docs-copy p {
+      color:rgba(255,255,255,.72);
+    }
+
+    .docs-list {
+      background:rgba(255,255,255,.06);
+      border-left:1px solid rgba(255,255,255,.10);
+      padding:28px;
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+
+    .doc-item {
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      padding:15px;
+      font-weight:800;
+      color:white;
+    }
+
+    .popular-grid {
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:16px;
+    }
+
+    .popular-card {
+      background:white;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+      transition:.24s ease;
+    }
+
+    .popular-card:hover {
+      transform:translateY(-7px);
+      box-shadow:var(--shadow);
+    }
+
+    .popular-card small {
+      display:block;
+      color:#B9935A;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:11px;
+      margin-bottom:12px;
+    }
+
+    .popular-card h3 {
+      color:var(--ink);
+      font-size:20px;
+      line-height:1.15;
+      letter-spacing:-.03em;
+      margin-bottom:10px;
+    }
+
+    .popular-card p {
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .popular-card .mini-btn {
+      display:inline-flex;
+      min-height:38px;
+      padding:0 14px;
+      align-items:center;
+      border-radius:999px;
+      background:#0B1623;
+      color:white;
+      font-weight:900;
+      font-size:13px;
+    }
+
+    .faq-wrap {
+      display:grid;
+      grid-template-columns:.85fr 1.15fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .faq-intro {
+      background:white;
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:28px;
+      box-shadow:var(--shadow-soft);
+      position:sticky;
+      top:118px;
+    }
+
+    .faq-intro h3 {
+      font-size:30px;
+      letter-spacing:-.045em;
+      line-height:1.08;
+      margin-bottom:12px;
+      color:var(--ink);
+    }
+
+    .faq-intro p {
+      color:var(--muted);
+    }
+
+    .faq-list {
+      display:grid;
+      gap:12px;
+    }
+
+    .faq-item {
+      background:white;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 12px 28px rgba(7,21,39,.06);
+    }
+
+    .faq-item h3 {
+      color:var(--ink);
+      font-size:18px;
+      line-height:1.22;
+      margin-bottom:8px;
+    }
+
+    .faq-item p {
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .privacy-note {
+      margin-top:18px;
+      border-radius:22px;
+      padding:18px;
+      background:#F3EFE6;
+      border:1px solid rgba(185,147,90,.24);
+      color:#344054;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .footer-pro {
+      background:#080F18;
+      color:white;
+      padding:46px 0;
+      margin-top:42px;
+    }
+
+    .footer-grid {
+      display:grid;
+      grid-template-columns:1.2fr .8fr .8fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .footer-brand {
+      display:flex;
+      gap:13px;
+      align-items:center;
+      margin-bottom:16px;
+    }
+
+    .footer-brand img {
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      object-fit:cover;
+      background:white;
+      border:1px solid rgba(185,147,90,.30);
+    }
+
+    .footer-brand strong {
+      display:block;
+      font-size:22px;
+      line-height:1;
+    }
+
+    .footer-brand span {
+      color:rgba(255,255,255,.58);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.10em;
+      font-weight:800;
+    }
+
+    .footer-pro p {
+      color:rgba(255,255,255,.64);
+      font-size:14px;
+      max-width:360px;
+    }
+
+    .footer-col h3 {
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      color:#D9BF8C;
+      margin-bottom:14px;
+    }
+
+    .footer-col a,
+    .footer-col span {
+      display:block;
+      color:rgba(255,255,255,.70);
+      margin-bottom:9px;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .footer-bottom {
+      margin-top:30px;
+      padding-top:22px;
+      border-top:1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.56);
+      font-size:13px;
+    }
+
+
     @media(max-width:1080px) {
       nav {
         display:none;
@@ -1054,8 +1470,23 @@
         grid-template-columns:1fr;
       }
 
-      .service-grid {
+      .service-grid,
+      .popular-grid,
+      .timeline {
         grid-template-columns:repeat(2, 1fr);
+      }
+
+      .why-grid,
+      .docs-panel,
+      .faq-wrap,
+      .footer-grid {
+        grid-template-columns:1fr;
+      }
+
+      .docs-list {
+        grid-template-columns:repeat(2, 1fr);
+        border-left:0;
+        border-top:1px solid rgba(255,255,255,.10);
       }
 
       .countries-grid {
@@ -1090,20 +1521,21 @@
       }
 
       .hero {
-        padding:50px 0 40px;
-      }
-
-      .hero::before {
+        min-height:auto;
+        padding:68px 0 54px;
         background:
-          linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.82)),
-          url("logo.jpg") center top 20px / 360px no-repeat;
-        opacity:.46;
+          linear-gradient(180deg, rgba(6,17,31,.90), rgba(6,17,31,.72)),
+          url("hero-bg.jpg") center / cover no-repeat;
       }
 
       .stats,
       .service-grid,
+      .popular-grid,
+      .timeline,
       .countries-grid,
-      .form-grid {
+      .form-grid,
+      .docs-list,
+      .footer-grid {
         grid-template-columns:1fr;
       }
 
@@ -1289,6 +1721,210 @@
           </div>
         </div>
       </div>
+
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Üstünlüklər</div>
+          <h2>Niyə AviaFly Travel?</h2>
+          <p>Peşəkar müraciət prosesi, aydın məlumat axını və səyahət ehtiyaclarını bir mərkəzdən idarə edən xidmət yanaşması.</p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-card dark reveal">
+            <h3>Səfər planlamasında daha sakit və aydın proses.</h3>
+            <p>AviaFly Travel müraciət məlumatlarını strukturlaşdırılmış formada qəbul edir və müştəri ilə agentlik arasında daha səliqəli əlaqə yaradır.</p>
+
+            <div class="quality-list">
+              <div class="quality-item">
+                <div class="quality-mark"></div>
+                <div>
+                  <strong>Fərdi yönləndirmə</strong>
+                  <span>Müştərinin seçdiyi istiqamət və tarix əsasında müraciət hazırlanır.</span>
+                </div>
+              </div>
+
+              <div class="quality-item">
+                <div class="quality-mark"></div>
+                <div>
+                  <strong>Vahid müraciət forması</strong>
+                  <span>Ölkə, tarix, sərnişin sayı və passport məlumatları eyni axında toplanır.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-card reveal">
+            <h3>Travel xidmətləri bir yerdə.</h3>
+            <p>Viza dəstəyi ilə yanaşı bilet, tur paketi, transfer və qrup turları üzrə də müraciət yönləndirməsi mümkündür.</p>
+
+            <div class="quality-list">
+              <div class="quality-item">
+                <div class="quality-mark"></div>
+                <div>
+                  <strong>Hər gün xidmət</strong>
+                  <span>08:00–00:00 aralığında müraciət və əlaqə imkanı.</span>
+                </div>
+              </div>
+
+              <div class="quality-item">
+                <div class="quality-mark"></div>
+                <div>
+                  <strong>Rahat əlaqə kanalları</strong>
+                  <span>Telefon, WhatsApp, Instagram və ofis ünvanı saytda aydın göstərilir.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Proses</div>
+          <h2>Müraciət necə işləyir?</h2>
+          <p>Form sadə görünür, amma arxada müraciəti səliqəli order kimi toplamaq üçün tam ardıcıl sistem qurulub.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-card reveal">
+            <h3>İstiqamət seçilir</h3>
+            <p>Müştəri Schengen ölkəsini seçir və həmin istiqamət üzrə məlumatları görür.</p>
+          </div>
+
+          <div class="timeline-card reveal">
+            <h3>Səfər detalları yazılır</h3>
+            <p>Tarix və sərnişin sayı daxil edilir, müraciət daha konkret formaya düşür.</p>
+          </div>
+
+          <div class="timeline-card reveal">
+            <h3>Passport məlumatları tamamlanır</h3>
+            <p>Viza və səyahət müraciəti üçün lazım olan əsas məlumatlar formda toplanır.</p>
+          </div>
+
+          <div class="timeline-card reveal">
+            <h3>Sorğu agentliyə yönləndirilir</h3>
+            <p>Müraciət order ID ilə sistemə düşür və menecer tərəfindən izlənilə bilir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="documents">
+      <div class="container">
+        <div class="docs-panel reveal">
+          <div class="docs-copy">
+            <div class="kicker">Sənədlər</div>
+            <h2>Viza müraciəti üçün əsas sənədlər</h2>
+            <p>Bu siyahı ümumi məlumat üçündür. Real tələb olunan sənədlər seçilən ölkəyə, səfər məqsədinə və müraciət növünə görə dəyişə bilər.</p>
+          </div>
+
+          <div class="docs-list">
+            <div class="doc-item">Passport</div>
+            <div class="doc-item">Şəxsiyyət vəsiqəsi</div>
+            <div class="doc-item">Bank çıxarışı</div>
+            <div class="doc-item">İş yerindən arayış</div>
+            <div class="doc-item">Şəkil</div>
+            <div class="doc-item">Səyahət tarixləri</div>
+            <div class="doc-item">Otel / dəvət məlumatı</div>
+            <div class="doc-item">Avia bilet məlumatı</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="popular">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">Populyar xidmətlər</div>
+          <h2>Ən çox tələb olunan xidmətlər</h2>
+          <p>Müştərilər əsas travel xidmətlərinə birbaşa saytdan müraciət edə və əlaqə məlumatlarını rahat tapa bilirlər.</p>
+        </div>
+
+        <div class="popular-grid">
+          <div class="popular-card reveal">
+            <small>Visa</small>
+            <h3>Schengen Viza</h3>
+            <p>Schengen istiqamətləri üzrə müraciət yönləndirməsi.</p>
+            <a class="mini-btn" href="#booking">Müraciət et</a>
+          </div>
+
+          <div class="popular-card reveal">
+            <small>Ticket</small>
+            <h3>Avia Bilet</h3>
+            <p>Səyahət istiqamətinə uyğun bilet sorğusu.</p>
+            <a class="mini-btn" href="https://wa.me/994506521101" target="_blank">Sorğu göndər</a>
+          </div>
+
+          <div class="popular-card reveal">
+            <small>Tour</small>
+            <h3>Tur Paket</h3>
+            <p>Fərdi və qrup səfərləri üçün tur seçimləri.</p>
+            <a class="mini-btn" href="https://wa.me/994506521101" target="_blank">Əlaqə saxla</a>
+          </div>
+
+          <div class="popular-card reveal">
+            <small>Transfer</small>
+            <h3>Transfer</h3>
+            <p>Səfər zamanı rahat transfer həlləri.</p>
+            <a class="mini-btn" href="tel:+994506521101">Zəng et</a>
+          </div>
+
+          <div class="popular-card reveal">
+            <small>Group</small>
+            <h3>Qrup Turları</h3>
+            <p>Qrup səfərləri üçün müraciət və planlama.</p>
+            <a class="mini-btn" href="https://wa.me/994506521101" target="_blank">Məlumat al</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <div class="faq-intro reveal">
+            <div class="kicker">FAQ</div>
+            <h3>Tez-tez verilən suallar</h3>
+            <p>Müraciət etməzdən əvvəl ən vacib suallara qısa cavablar.</p>
+
+            <div class="privacy-note">
+              Məlumatlar yalnız viza və səyahət müraciətinin emalı üçün istifadə olunur və müraciət agentliyə yönləndirilir.
+            </div>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item reveal">
+              <h3>Viza müraciəti nə qədər vaxt aparır?</h3>
+              <p>Müddət ölkəyə, müraciət növünə və sənəd hazırlığına görə dəyişə bilər. Menecer müraciətdən sonra uyğun məlumat verir.</p>
+            </div>
+
+            <div class="faq-item reveal">
+              <h3>Passport məlumatları niyə tələb olunur?</h3>
+              <p>Passport məlumatları müraciətin düzgün yönləndirilməsi və səyahət məlumatlarının dəqiq hazırlanması üçün lazımdır.</p>
+            </div>
+
+            <div class="faq-item reveal">
+              <h3>Müraciətdən sonra nə baş verir?</h3>
+              <p>Sorğu qəbul edilir, order ID yaradılır və menecer məlumatları yoxlayaraq sizinlə əlaqə saxlayır.</p>
+            </div>
+
+            <div class="faq-item reveal">
+              <h3>Ödəniş necə edilir?</h3>
+              <p>Ödəniş və xidmət şərtləri müraciət təsdiqləndikdən sonra menecer tərəfindən təqdim edilir.</p>
+            </div>
+
+            <div class="faq-item reveal">
+              <h3>Schengen ölkələri üzrə məlumatlar dəyişə bilər?</h3>
+              <p>Bəli. Viza məlumatları, sənəd tələbləri və qiymətlər istiqamətə görə yenilənə bilər.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="booking">
@@ -1310,14 +1946,20 @@
 
             <div class="selected-card">
               <small data-i18n="selectedLabel">Seçilmiş istiqamət</small>
-              <strong id="miniSelectedCountry">Austria</strong>
+              <div class="selected-row">
+                <img class="small-flag" id="miniSelectedFlag" src="" alt="">
+                <strong id="miniSelectedCountry">Austria</strong>
+              </div>
               <button class="btn btn-gold" onclick="openCountryModal()" data-i18n="changeCountry">Ölkəni seç</button>
             </div>
           </div>
 
           <div class="booking-body">
             <aside class="country-summary">
-              <h3 id="selectedCountryTitle">Austria</h3>
+              <div class="country-title-row">
+                <img id="selectedCountryFlag" src="" alt="">
+                <h3 id="selectedCountryTitle">Austria</h3>
+              </div>
 
               <div class="info-stack">
                 <div class="info-box">
@@ -1526,10 +2168,52 @@
     <a class="float call" href="tel:+994506521101" data-i18n="callFloat">Zəng et</a>
   </div>
 
-  <footer>
-    <div class="container footer-inner">
-      <div>© 2026 AviaFly Travel</div>
-      <div>Visa · Ticket · Tour Services</div>
+  <footer class="footer-pro">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="logo.jpg" alt="AviaFly Travel">
+            <div>
+              <strong>AviaFly Travel</strong>
+              <span>Visa · Ticket · Tour</span>
+            </div>
+          </div>
+          <p>Avia biletlər, tur paketlər, viza dəstəyi, transfer xidməti və qrup turları üçün peşəkar travel mərkəzi.</p>
+        </div>
+
+        <div class="footer-col">
+          <h3>Xidmətlər</h3>
+          <a href="#booking">Schengen Viza</a>
+          <a href="#popular">Avia Bilet</a>
+          <a href="#popular">Tur Paket</a>
+          <a href="#popular">Transfer</a>
+          <a href="#popular">Qrup Turları</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Keçidlər</h3>
+          <a href="#services">Xidmətlər</a>
+          <a href="#process">Proses</a>
+          <a href="#documents">Sənədlər</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Əlaqə</a>
+        </div>
+
+        <div class="footer-col">
+          <h3>Əlaqə</h3>
+          <a href="tel:+994506521101">+994 50 652 11 01</a>
+          <a href="tel:+994702555702">+994 70 255 57 02</a>
+          <a href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
+          <a href="https://www.instagram.com/aviafly_travel.az/" target="_blank">Instagram</a>
+          <span>Jalə Plaza, 5-ci mərtəbə</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AviaFly Travel. All rights reserved.</div>
+        <div>Jalə Plaza · Hər gün 08:00–00:00</div>
+      </div>
     </div>
   </footer>
 
@@ -1662,203 +2346,232 @@
     const countries = [
   {
     "name": "Austria",
-    "flag": "🇦🇹",
+    "code": "at",
+    "flag": "https://flagcdn.com/w160/at.png",
     "visaInfo": "Viza məlumatı 1",
     "travelInfo": "Səfər məlumatları 1",
     "price": "10 AZN"
   },
   {
     "name": "Belgium",
-    "flag": "🇧🇪",
+    "code": "be",
+    "flag": "https://flagcdn.com/w160/be.png",
     "visaInfo": "Viza məlumatı 2",
     "travelInfo": "Səfər məlumatları 2",
     "price": "20 AZN"
   },
   {
     "name": "Bulgaria",
-    "flag": "🇧🇬",
+    "code": "bg",
+    "flag": "https://flagcdn.com/w160/bg.png",
     "visaInfo": "Viza məlumatı 3",
     "travelInfo": "Səfər məlumatları 3",
     "price": "30 AZN"
   },
   {
     "name": "Croatia",
-    "flag": "🇭🇷",
+    "code": "hr",
+    "flag": "https://flagcdn.com/w160/hr.png",
     "visaInfo": "Viza məlumatı 4",
     "travelInfo": "Səfər məlumatları 4",
     "price": "40 AZN"
   },
   {
     "name": "Czech Republic",
-    "flag": "🇨🇿",
+    "code": "cz",
+    "flag": "https://flagcdn.com/w160/cz.png",
     "visaInfo": "Viza məlumatı 5",
     "travelInfo": "Səfər məlumatları 5",
     "price": "50 AZN"
   },
   {
     "name": "Denmark",
-    "flag": "🇩🇰",
+    "code": "dk",
+    "flag": "https://flagcdn.com/w160/dk.png",
     "visaInfo": "Viza məlumatı 6",
     "travelInfo": "Səfər məlumatları 6",
     "price": "60 AZN"
   },
   {
     "name": "Estonia",
-    "flag": "🇪🇪",
+    "code": "ee",
+    "flag": "https://flagcdn.com/w160/ee.png",
     "visaInfo": "Viza məlumatı 7",
     "travelInfo": "Səfər məlumatları 7",
     "price": "70 AZN"
   },
   {
     "name": "Finland",
-    "flag": "🇫🇮",
+    "code": "fi",
+    "flag": "https://flagcdn.com/w160/fi.png",
     "visaInfo": "Viza məlumatı 8",
     "travelInfo": "Səfər məlumatları 8",
     "price": "80 AZN"
   },
   {
     "name": "France",
-    "flag": "🇫🇷",
+    "code": "fr",
+    "flag": "https://flagcdn.com/w160/fr.png",
     "visaInfo": "Viza məlumatı 9",
     "travelInfo": "Səfər məlumatları 9",
     "price": "90 AZN"
   },
   {
     "name": "Germany",
-    "flag": "🇩🇪",
+    "code": "de",
+    "flag": "https://flagcdn.com/w160/de.png",
     "visaInfo": "Viza məlumatı 10",
     "travelInfo": "Səfər məlumatları 10",
     "price": "100 AZN"
   },
   {
     "name": "Greece",
-    "flag": "🇬🇷",
+    "code": "gr",
+    "flag": "https://flagcdn.com/w160/gr.png",
     "visaInfo": "Viza məlumatı 11",
     "travelInfo": "Səfər məlumatları 11",
     "price": "110 AZN"
   },
   {
     "name": "Hungary",
-    "flag": "🇭🇺",
+    "code": "hu",
+    "flag": "https://flagcdn.com/w160/hu.png",
     "visaInfo": "Viza məlumatı 12",
     "travelInfo": "Səfər məlumatları 12",
     "price": "120 AZN"
   },
   {
     "name": "Iceland",
-    "flag": "🇮🇸",
+    "code": "is",
+    "flag": "https://flagcdn.com/w160/is.png",
     "visaInfo": "Viza məlumatı 13",
     "travelInfo": "Səfər məlumatları 13",
     "price": "130 AZN"
   },
   {
     "name": "Italy",
-    "flag": "🇮🇹",
+    "code": "it",
+    "flag": "https://flagcdn.com/w160/it.png",
     "visaInfo": "Viza məlumatı 14",
     "travelInfo": "Səfər məlumatları 14",
     "price": "140 AZN"
   },
   {
     "name": "Latvia",
-    "flag": "🇱🇻",
+    "code": "lv",
+    "flag": "https://flagcdn.com/w160/lv.png",
     "visaInfo": "Viza məlumatı 15",
     "travelInfo": "Səfər məlumatları 15",
     "price": "150 AZN"
   },
   {
     "name": "Liechtenstein",
-    "flag": "🇱🇮",
+    "code": "li",
+    "flag": "https://flagcdn.com/w160/li.png",
     "visaInfo": "Viza məlumatı 16",
     "travelInfo": "Səfər məlumatları 16",
     "price": "160 AZN"
   },
   {
     "name": "Lithuania",
-    "flag": "🇱🇹",
+    "code": "lt",
+    "flag": "https://flagcdn.com/w160/lt.png",
     "visaInfo": "Viza məlumatı 17",
     "travelInfo": "Səfər məlumatları 17",
     "price": "170 AZN"
   },
   {
     "name": "Luxembourg",
-    "flag": "🇱🇺",
+    "code": "lu",
+    "flag": "https://flagcdn.com/w160/lu.png",
     "visaInfo": "Viza məlumatı 18",
     "travelInfo": "Səfər məlumatları 18",
     "price": "180 AZN"
   },
   {
     "name": "Malta",
-    "flag": "🇲🇹",
+    "code": "mt",
+    "flag": "https://flagcdn.com/w160/mt.png",
     "visaInfo": "Viza məlumatı 19",
     "travelInfo": "Səfər məlumatları 19",
     "price": "190 AZN"
   },
   {
     "name": "Netherlands",
-    "flag": "🇳🇱",
+    "code": "nl",
+    "flag": "https://flagcdn.com/w160/nl.png",
     "visaInfo": "Viza məlumatı 20",
     "travelInfo": "Səfər məlumatları 20",
     "price": "200 AZN"
   },
   {
     "name": "Norway",
-    "flag": "🇳🇴",
+    "code": "no",
+    "flag": "https://flagcdn.com/w160/no.png",
     "visaInfo": "Viza məlumatı 21",
     "travelInfo": "Səfər məlumatları 21",
     "price": "210 AZN"
   },
   {
     "name": "Poland",
-    "flag": "🇵🇱",
+    "code": "pl",
+    "flag": "https://flagcdn.com/w160/pl.png",
     "visaInfo": "Viza məlumatı 22",
     "travelInfo": "Səfər məlumatları 22",
     "price": "220 AZN"
   },
   {
     "name": "Portugal",
-    "flag": "🇵🇹",
+    "code": "pt",
+    "flag": "https://flagcdn.com/w160/pt.png",
     "visaInfo": "Viza məlumatı 23",
     "travelInfo": "Səfər məlumatları 23",
     "price": "230 AZN"
   },
   {
     "name": "Romania",
-    "flag": "🇷🇴",
+    "code": "ro",
+    "flag": "https://flagcdn.com/w160/ro.png",
     "visaInfo": "Viza məlumatı 24",
     "travelInfo": "Səfər məlumatları 24",
     "price": "240 AZN"
   },
   {
     "name": "Slovakia",
-    "flag": "🇸🇰",
+    "code": "sk",
+    "flag": "https://flagcdn.com/w160/sk.png",
     "visaInfo": "Viza məlumatı 25",
     "travelInfo": "Səfər məlumatları 25",
     "price": "250 AZN"
   },
   {
     "name": "Slovenia",
-    "flag": "🇸🇮",
+    "code": "si",
+    "flag": "https://flagcdn.com/w160/si.png",
     "visaInfo": "Viza məlumatı 26",
     "travelInfo": "Səfər məlumatları 26",
     "price": "260 AZN"
   },
   {
     "name": "Spain",
-    "flag": "🇪🇸",
+    "code": "es",
+    "flag": "https://flagcdn.com/w160/es.png",
     "visaInfo": "Viza məlumatı 27",
     "travelInfo": "Səfər məlumatları 27",
     "price": "270 AZN"
   },
   {
     "name": "Sweden",
-    "flag": "🇸🇪",
+    "code": "se",
+    "flag": "https://flagcdn.com/w160/se.png",
     "visaInfo": "Viza məlumatı 28",
     "travelInfo": "Səfər məlumatları 28",
     "price": "280 AZN"
   },
   {
     "name": "Switzerland",
-    "flag": "🇨🇭",
+    "code": "ch",
+    "flag": "https://flagcdn.com/w160/ch.png",
     "visaInfo": "Viza məlumatı 29",
     "travelInfo": "Səfər məlumatları 29",
     "price": "290 AZN"
@@ -1872,7 +2585,9 @@
     const modal = document.getElementById("countryModal");
     const countriesGrid = document.getElementById("countriesGrid");
     const selectedCountryTitle = document.getElementById("selectedCountryTitle");
+    const selectedCountryFlag = document.getElementById("selectedCountryFlag");
     const miniSelectedCountry = document.getElementById("miniSelectedCountry");
+    const miniSelectedFlag = document.getElementById("miniSelectedFlag");
     const selectedVisaInfo = document.getElementById("selectedVisaInfo");
     const selectedTravelInfo = document.getElementById("selectedTravelInfo");
     const selectedPrice = document.getElementById("selectedPrice");
@@ -1920,7 +2635,7 @@
         button.className = "country-card" + (country.name === selectedCountry.name ? " active" : "");
 
         button.innerHTML = `
-          <div class="flag-circle">${country.flag}</div>
+          <img class="flag-circle" src="${country.flag}" alt="${country.name} flag">
           <strong>${country.name}</strong>
           <span>${country.price}</span>
         `;
@@ -1937,8 +2652,12 @@
     }
 
     function updateSelectedInfo() {
-      selectedCountryTitle.textContent = selectedCountry.flag + " " + selectedCountry.name;
-      miniSelectedCountry.textContent = selectedCountry.flag + " " + selectedCountry.name;
+      selectedCountryTitle.textContent = selectedCountry.name;
+      selectedCountryFlag.src = selectedCountry.flag;
+      selectedCountryFlag.alt = selectedCountry.name + " flag";
+      miniSelectedCountry.textContent = selectedCountry.name;
+      miniSelectedFlag.src = selectedCountry.flag;
+      miniSelectedFlag.alt = selectedCountry.name + " flag";
       selectedVisaInfo.textContent = selectedCountry.visaInfo;
       selectedTravelInfo.textContent = selectedCountry.travelInfo;
       selectedPrice.textContent = selectedCountry.price;
