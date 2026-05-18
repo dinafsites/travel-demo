@@ -151,7 +151,7 @@
     .brand span {
       display:block;
       margin-top:6px;
-      color:var(--muted);
+      color:rgba(255,255,255,.65);
       font-size:12px;
       font-weight:800;
       text-transform:uppercase;
@@ -1458,6 +1458,198 @@
     }
 
 
+
+    .progress-track {
+      width:100%;
+      height:8px;
+      background:#E8E2D8;
+      border-radius:999px;
+      overflow:hidden;
+      margin-bottom:18px;
+      border:1px solid rgba(7,21,39,.06);
+    }
+
+    .progress-fill {
+      width:25%;
+      height:100%;
+      background:linear-gradient(90deg, #2E6B4F, #B9935A);
+      border-radius:999px;
+      transition:width .35s ease;
+    }
+
+    .step {
+      transition:background .25s ease, color .25s ease, transform .25s ease;
+    }
+
+    .step.active {
+      transform:translateY(-1px);
+    }
+
+    .premium-input-note {
+      margin-top:16px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(185,147,90,.10);
+      border:1px solid rgba(185,147,90,.18);
+      color:#46566d;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .success-modal {
+      position:fixed;
+      inset:0;
+      z-index:4000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+    }
+
+    .success-modal.show {
+      display:flex;
+    }
+
+    .success-backdrop {
+      position:absolute;
+      inset:0;
+      background:rgba(8,15,24,.72);
+      backdrop-filter:blur(14px);
+    }
+
+    .success-card {
+      position:relative;
+      z-index:2;
+      width:min(100%, 620px);
+      border-radius:34px;
+      background:linear-gradient(180deg, #ffffff, #F7F3EC);
+      border:1px solid rgba(255,255,255,.55);
+      box-shadow:0 34px 110px rgba(0,0,0,.34);
+      padding:34px;
+      text-align:left;
+      animation:successPop .28s ease both;
+      overflow:hidden;
+    }
+
+    .success-card::before {
+      content:"";
+      position:absolute;
+      width:320px;
+      height:320px;
+      right:-140px;
+      top:-140px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(46,107,79,.18), transparent 64%);
+    }
+
+    .success-card::after {
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      left:-120px;
+      bottom:-130px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(185,147,90,.18), transparent 64%);
+    }
+
+    @keyframes successPop {
+      from { opacity:0; transform:scale(.96) translateY(18px); }
+      to { opacity:1; transform:scale(1) translateY(0); }
+    }
+
+    .success-inner {
+      position:relative;
+      z-index:2;
+    }
+
+    .success-icon {
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:white;
+      background:linear-gradient(135deg, #2E6B4F, #1F4F39);
+      box-shadow:0 18px 40px rgba(46,107,79,.30);
+      font-size:34px;
+      font-weight:900;
+      margin-bottom:20px;
+    }
+
+    .success-card h2 {
+      font-size:clamp(30px, 5vw, 46px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      color:#0B1623;
+      margin-bottom:12px;
+    }
+
+    .success-card p {
+      color:#657084;
+      font-size:16px;
+      margin-bottom:18px;
+    }
+
+    .success-details {
+      display:grid;
+      gap:10px;
+      margin:18px 0 22px;
+    }
+
+    .success-detail {
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:center;
+      border:1px solid rgba(7,21,39,.10);
+      background:white;
+      border-radius:18px;
+      padding:13px 15px;
+    }
+
+    .success-detail small {
+      color:#657084;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:11px;
+    }
+
+    .success-detail strong {
+      color:#0B1623;
+      font-size:15px;
+      text-align:right;
+    }
+
+    .success-actions {
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .hero .btn-primary {
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero .btn-primary::after {
+      content:"";
+      position:absolute;
+      top:0;
+      left:-80%;
+      width:60%;
+      height:100%;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.24), transparent);
+      transform:skewX(-18deg);
+      animation:shine 4s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0%, 55% { left:-80%; }
+      75%, 100% { left:125%; }
+    }
+
     @media(max-width:1080px) {
       nav {
         display:none;
@@ -1980,6 +2172,10 @@
             </aside>
 
             <div>
+              <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+
               <div class="steps">
                 <span class="step active" data-step-dot="1" data-i18n="step1">1. Tarix</span>
                 <span class="step" data-step-dot="2" data-i18n="step2">2. Sərnişin</span>
@@ -2091,6 +2287,10 @@
                     </span>
                   </label>
 
+                  <div class="premium-input-note" data-i18n="privacyLine">
+                    Müraciət göndərildikdən sonra menecer məlumatları yoxlayacaq və sizinlə əlaqə saxlayacaq.
+                  </div>
+
                   <div class="form-actions">
                     <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn3">Geri</button>
                     <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="submitBtn">Müraciəti göndər</button>
@@ -2147,6 +2347,38 @@
       </div>
     </section>
   </main>
+
+
+  <div class="success-modal" id="successModal" aria-live="polite">
+    <div class="success-backdrop" onclick="closeSuccessModal()"></div>
+    <div class="success-card">
+      <div class="success-inner">
+        <div class="success-icon">✓</div>
+        <h2 data-i18n="successTitle">Müraciətiniz qəbul edildi</h2>
+        <p data-i18n="successText">Sorğunuz sistemə daxil oldu. Menecer məlumatları yoxladıqdan sonra sizinlə əlaqə saxlayacaq.</p>
+
+        <div class="success-details">
+          <div class="success-detail">
+            <small>Order ID</small>
+            <strong id="successOrderId">TRV-00000</strong>
+          </div>
+          <div class="success-detail">
+            <small data-i18n="successCountryLabel">İstiqamət</small>
+            <strong id="successCountry">Austria</strong>
+          </div>
+          <div class="success-detail">
+            <small data-i18n="successDateLabel">Səfər tarixi</small>
+            <strong id="successDate">—</strong>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <button class="btn btn-primary" type="button" onclick="closeSuccessModal()" data-i18n="successClose">Bağla</button>
+          <a class="btn btn-light" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="modal" id="countryModal">
     <div class="modal-backdrop" onclick="closeCountryModal()"></div>
@@ -2259,6 +2491,9 @@
         contactKicker:"Əlaqə", contactTitle:"AviaFly Travel ilə əlaqə saxlayın.", contactText:"Ofis ünvanı, telefon nömrələri, WhatsApp, Instagram və xəritə məlumatları.",
         addressLabel:"Ünvan", phoneContactLabel:"Telefon", hoursLabel:"İş saatları",
         modalTitle:"Schengen istiqamətini seçin", modalText:"Seçilən istiqamət üzrə məlumatlar müraciət formasına əlavə olunacaq.",
+        privacyLine:"Müraciət göndərildikdən sonra menecer məlumatları yoxlayacaq və sizinlə əlaqə saxlayacaq.",
+        successTitle:"Müraciətiniz qəbul edildi", successText:"Sorğunuz sistemə daxil oldu. Menecer məlumatları yoxladıqdan sonra sizinlə əlaqə saxlayacaq.",
+        successCountryLabel:"İstiqamət", successDateLabel:"Səfər tarixi", successClose:"Bağla",
         callFloat:"Zəng et"
       },
       en: {
@@ -2299,6 +2534,9 @@
         contactKicker:"Contact", contactTitle:"Contact AviaFly Travel.", contactText:"Office address, phone numbers, WhatsApp, Instagram and map details.",
         addressLabel:"Address", phoneContactLabel:"Phone", hoursLabel:"Working hours",
         modalTitle:"Choose Schengen destination", modalText:"Information for the selected destination will be added to the request form.",
+        privacyLine:"After submission, the manager will review the information and contact you.",
+        successTitle:"Your request has been received", successText:"Your request has entered the system. The manager will review the information and contact you.",
+        successCountryLabel:"Destination", successDateLabel:"Travel date", successClose:"Close",
         callFloat:"Call"
       },
       ru: {
@@ -2339,6 +2577,9 @@
         contactKicker:"Контакты", contactTitle:"Свяжитесь с AviaFly Travel.", contactText:"Адрес офиса, телефоны, WhatsApp, Instagram и карта.",
         addressLabel:"Адрес", phoneContactLabel:"Телефон", hoursLabel:"Часы работы",
         modalTitle:"Выберите направление Шенгена", modalText:"Информация по выбранному направлению будет добавлена в форму заявки.",
+        privacyLine:"После отправки менеджер проверит информацию и свяжется с вами.",
+        successTitle:"Ваша заявка принята", successText:"Ваша заявка внесена в систему. Менеджер проверит информацию и свяжется с вами.",
+        successCountryLabel:"Направление", successDateLabel:"Дата поездки", successClose:"Закрыть",
         callFloat:"Позвонить"
       }
     };
@@ -2594,6 +2835,11 @@
     const finalSummary = document.getElementById("finalSummary");
     const notice = document.getElementById("notice");
     const submitBtn = document.getElementById("submitBtn");
+    const progressFill = document.getElementById("progressFill");
+    const successModal = document.getElementById("successModal");
+    const successOrderId = document.getElementById("successOrderId");
+    const successCountry = document.getElementById("successCountry");
+    const successDate = document.getElementById("successDate");
 
     function setLang(lang) {
       currentLang = lang;
@@ -2673,6 +2919,10 @@
       document.querySelectorAll(".step").forEach(dot => dot.classList.remove("active"));
       document.querySelector(`[data-step-dot="${step}"]`).classList.add("active");
 
+      if (progressFill) {
+        progressFill.style.width = (step * 25) + "%";
+      }
+
       updateSelectedInfo();
     }
 
@@ -2733,6 +2983,19 @@
       notice.textContent = message;
     }
 
+    function showSuccessModal(data) {
+      successOrderId.textContent = data.orderId;
+      successCountry.textContent = data.selectedCountry + " — " + data.price;
+      successDate.textContent = data.travelDate || "—";
+      successModal.classList.add("show");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeSuccessModal() {
+      successModal.classList.remove("show");
+      document.body.classList.remove("modal-open");
+    }
+
     function collectFormData() {
       const orderId = createOrderId();
 
@@ -2780,13 +3043,7 @@
           body:JSON.stringify(data)
         });
 
-        const successText = currentLang === "az"
-          ? "Müraciətiniz qəbul edildi. Order ID: " + data.orderId + ". Menecer sizinlə əlaqə saxlayacaq."
-          : currentLang === "ru"
-            ? "Ваша заявка принята. Order ID: " + data.orderId + ". Менеджер свяжется с вами."
-            : "Your request has been received. Order ID: " + data.orderId + ". The manager will contact you.";
-
-        showNotice("success", successText);
+        showSuccessModal(data);
         document.getElementById("travelForm").reset();
         showStep(1);
       } catch (error) {
@@ -2800,6 +3057,7 @@
     document.addEventListener("keydown", function(event) {
       if (event.key === "Escape") {
         closeCountryModal();
+        closeSuccessModal();
       }
     });
 
@@ -2818,3 +3076,4 @@
   </script>
 </body>
 </html>
+
