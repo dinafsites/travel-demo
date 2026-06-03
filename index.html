@@ -1650,6 +1650,232 @@
       75%, 100% { left:125%; }
     }
 
+
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 20% 10%, rgba(185,147,90,.18), transparent 32%), linear-gradient(135deg, #080F18 0%, #0B1623 52%, #111E2D 100%);
+      color: white;
+      transition: opacity .65s ease, visibility .65s ease;
+    }
+    .page-loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-card {
+      width: min(92vw, 430px);
+      padding: 34px;
+      border-radius: 34px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid rgba(255,255,255,.13);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 40px 130px rgba(0,0,0,.35);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .loader-logo {
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      object-fit: cover;
+      background: white;
+      margin: 0 auto 18px;
+      border: 1px solid rgba(217,191,140,.38);
+      box-shadow: 0 24px 55px rgba(0,0,0,.25);
+    }
+    .loader-card h2 { font-size: 28px; letter-spacing: -.045em; margin-bottom: 8px; }
+    .loader-card p { color: rgba(255,255,255,.62); font-weight: 700; margin-bottom: 22px; }
+    .loader-bar {
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,.12);
+    }
+    .loader-bar span {
+      display: block;
+      width: 42%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #D9BF8C, #B9935A, #2E6B4F);
+      animation: loaderMove 1.3s ease-in-out infinite;
+    }
+    @keyframes loaderMove { 0% { transform: translateX(-120%); } 100% { transform: translateX(260%); } }
+
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #D9BF8C, #2E6B4F);
+      z-index: 99998;
+      box-shadow: 0 0 18px rgba(185,147,90,.55);
+    }
+
+    .custom-cursor, .cursor-dot {
+      position: fixed;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99997;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+    .custom-cursor {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(217,191,140,.75);
+      background: rgba(217,191,140,.06);
+      backdrop-filter: blur(4px);
+      transition: width .2s ease, height .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .cursor-dot {
+      width: 7px;
+      height: 7px;
+      background: #D9BF8C;
+      box-shadow: 0 0 18px rgba(217,191,140,.75);
+    }
+    .custom-cursor.hover {
+      width: 64px;
+      height: 64px;
+      background: rgba(46,107,79,.13);
+      border-color: rgba(46,107,79,.85);
+    }
+    @media (hover:hover) and (pointer:fine) {
+      body.premium-cursor * { cursor: none !important; }
+      .custom-cursor, .cursor-dot { display: block; }
+    }
+
+    .noise-layer {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      opacity: .035;
+      mix-blend-mode: multiply;
+      background-image: radial-gradient(circle at 25% 25%, #000 0 1px, transparent 1px), radial-gradient(circle at 75% 75%, #000 0 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .premium-orb {
+      position: fixed;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      filter: blur(22px);
+      background: radial-gradient(circle, rgba(185,147,90,.16), transparent 66%);
+      left: -140px;
+      top: 38vh;
+      z-index: 0;
+      pointer-events: none;
+      animation: orbFloat 9s ease-in-out infinite alternate;
+    }
+    .premium-orb.two {
+      width: 300px;
+      height: 300px;
+      left: auto;
+      right: -120px;
+      top: 18vh;
+      background: radial-gradient(circle, rgba(46,107,79,.13), transparent 66%);
+      animation-duration: 11s;
+    }
+    @keyframes orbFloat { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(35px,-45px,0) scale(1.08); } }
+
+    .tilt-card { transform-style: preserve-3d; transition: transform .18s ease, box-shadow .18s ease; }
+    .tilt-card.is-tilting { box-shadow: 0 34px 95px rgba(7,21,39,.20); }
+    .magnetic { transition: transform .18s ease; }
+
+    .luxury-underline { position: relative; display: inline-block; }
+    .luxury-underline::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: .06em;
+      width: 100%;
+      height: .16em;
+      background: linear-gradient(90deg, rgba(217,191,140,.70), rgba(46,107,79,.25));
+      z-index: -1;
+      border-radius: 999px;
+    }
+
+    .premium-bento {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .bento-card {
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(7,21,39,.10);
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: 0 18px 50px rgba(7,21,39,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-card.dark {
+      background: linear-gradient(145deg, #0B1623, #14263A);
+      color: white;
+      border-color: rgba(255,255,255,.12);
+    }
+    .bento-card h3 {
+      font-size: 25px;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      margin-bottom: 10px;
+      color: inherit;
+    }
+    .bento-card p { color: var(--muted); font-weight: 650; }
+    .bento-card.dark p { color: rgba(255,255,255,.66); }
+    .mini-metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .mini-metric {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .mini-metric strong { display: block; font-size: 22px; color: #D9BF8C; line-height: 1; margin-bottom: 6px; }
+    .mini-metric span { display: block; font-size: 12px; font-weight: 800; color: rgba(255,255,255,.62); }
+    .premium-badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .premium-badge {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #F3EFE6;
+      border: 1px solid rgba(185,147,90,.24);
+      color: #344054;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .country-card::after, .service::after, .popular-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -40% -75% -40%;
+      height: 110px;
+      background: radial-gradient(circle, rgba(185,147,90,.18), transparent 60%);
+      opacity: 0;
+      transition: opacity .25s ease;
+      pointer-events: none;
+    }
+    .country-card:hover::after, .service:hover::after, .popular-card:hover::after { opacity: 1; }
+    .country-card, .service, .popular-card { position: relative; overflow: hidden; }
+
+    @media(max-width:900px) {
+      .premium-bento { grid-template-columns: 1fr; }
+      .mini-metric-row { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .loader-bar span, .premium-orb, .hero .btn-primary::after { animation: none !important; }
+      .custom-cursor, .cursor-dot { display: none !important; }
+      body.premium-cursor * { cursor: auto !important; }
+    }
+
     @media(max-width:1080px) {
       nav {
         display:none;
@@ -1760,7 +1986,22 @@
   </style>
 </head>
 
-<body>
+<body class="premium-cursor">
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-card">
+      <img class="loader-logo" src="logo.jpg" alt="AviaFly Travel">
+      <h2>AviaFly Travel</h2>
+      <p>Preparing your travel experience</p>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="custom-cursor" id="customCursor"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="noise-layer"></div>
+  <div class="premium-orb"></div>
+  <div class="premium-orb two"></div>
+
   <div class="top-line">
     <div class="container top-line-inner">
       <div>Jalə Plaza, 5-ci mərtəbə · Hər gün 08:00–00:00</div>
@@ -1796,7 +2037,7 @@
           <button onclick="setLang('en')">EN</button>
           <button onclick="setLang('ru')">RU</button>
         </div>
-        <a class="btn btn-primary" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
+        <a class="btn magnetic btn-primary" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
       </div>
     </div>
   </header>
@@ -1812,8 +2053,8 @@
           </p>
 
           <div class="hero-actions">
-            <button class="btn btn-primary" onclick="openCountryModal()" data-i18n="heroChoose">Schengen ölkəsini seç</button>
-            <a class="btn btn-light" href="#contact" data-i18n="heroContact">Əlaqə saxla</a>
+            <button class="btn magnetic btn-primary" onclick="openCountryModal()" data-i18n="heroChoose">Schengen ölkəsini seç</button>
+            <a class="btn magnetic btn-light" href="#contact" data-i18n="heroContact">Əlaqə saxla</a>
           </div>
 
           <div class="stats">
@@ -1834,9 +2075,31 @@
               <span data-i18n="stat4">Qrup turları</span>
             </div>
           </div>
+          <div class="premium-bento reveal">
+            <div class="bento-card dark tilt-card">
+              <h3>Online müraciət sistemi</h3>
+              <p>Ölkə, tarix, sərnişin sayı və passport məlumatları vahid formada toplanır.</p>
+              <div class="mini-metric-row">
+                <div class="mini-metric"><strong>ID</strong><span>Order tracking</span></div>
+                <div class="mini-metric"><strong>3</strong><span>Languages</span></div>
+                <div class="mini-metric"><strong>24/7</strong><span>Online access</span></div>
+              </div>
+            </div>
+            <div class="bento-card tilt-card">
+              <h3>Premium travel flow</h3>
+              <p>Schengen seçimi, müraciət formu, əlaqə və xəritə bölməsi müştəri üçün aydın qurulub.</p>
+              <div class="premium-badge-row">
+                <span class="premium-badge">Schengen</span>
+                <span class="premium-badge">Booking</span>
+                <span class="premium-badge">WhatsApp</span>
+                <span class="premium-badge">Map</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="signature-card reveal">
+        <div class="signature-card tilt-card reveal">
           <div class="signature-inner">
             <h2 data-i18n="cardTitle">Müraciət prosesi bir neçə addımda tamamlanır.</h2>
             <p data-i18n="cardText">Ölkə seçimi, tarix, sərnişin sayı və passport məlumatları vahid sistem üzərindən göndərilir.</p>
@@ -1881,33 +2144,33 @@
           </p>
         </div>
 
-        <div class="service-grid">
-          <div class="service reveal">
-            <div class="service-line"></div>
+        <div class="service tilt-card-grid">
+          <div class="service tilt-card reveal">
+            <div class="service tilt-card-line"></div>
             <h3 data-i18n="s1Title">Avia biletlər</h3>
             <p data-i18n="s1Text">İstiqamətinizə uyğun bilet sorğuları və seçimlərin yönləndirilməsi.</p>
           </div>
 
-          <div class="service reveal">
-            <div class="service-line"></div>
+          <div class="service tilt-card reveal">
+            <div class="service tilt-card-line"></div>
             <h3 data-i18n="s2Title">Tur paketlər</h3>
             <p data-i18n="s2Text">Fərqli ölkələr üzrə istirahət və səyahət paketləri.</p>
           </div>
 
-          <div class="service reveal">
-            <div class="service-line"></div>
+          <div class="service tilt-card reveal">
+            <div class="service tilt-card-line"></div>
             <h3 data-i18n="s3Title">Viza dəstəyi</h3>
             <p data-i18n="s3Text">Schengen və digər istiqamətlər üzrə müraciət dəstəyi.</p>
           </div>
 
-          <div class="service reveal">
-            <div class="service-line"></div>
+          <div class="service tilt-card reveal">
+            <div class="service tilt-card-line"></div>
             <h3 data-i18n="s4Title">Transfer xidməti</h3>
             <p data-i18n="s4Text">Səfər zamanı transfer və rahat hərəkət seçimləri.</p>
           </div>
 
-          <div class="service reveal">
-            <div class="service-line"></div>
+          <div class="service tilt-card reveal">
+            <div class="service tilt-card-line"></div>
             <h3 data-i18n="s5Title">Qrup turları</h3>
             <p data-i18n="s5Text">Qrup səfərləri üçün tur planlaması və müraciət yönləndirməsi.</p>
           </div>
@@ -1925,7 +2188,7 @@
         </div>
 
         <div class="why-grid">
-          <div class="why-card dark reveal">
+          <div class="why-card tilt-card dark reveal">
             <h3>Səfər planlamasında daha sakit və aydın proses.</h3>
             <p>AviaFly Travel müraciət məlumatlarını strukturlaşdırılmış formada qəbul edir və müştəri ilə agentlik arasında daha səliqəli əlaqə yaradır.</p>
 
@@ -1948,7 +2211,7 @@
             </div>
           </div>
 
-          <div class="why-card reveal">
+          <div class="why-card tilt-card reveal">
             <h3>Travel xidmətləri bir yerdə.</h3>
             <p>Viza dəstəyi ilə yanaşı bilet, tur paketi, transfer və qrup turları üzrə də müraciət yönləndirməsi mümkündür.</p>
 
@@ -1983,22 +2246,22 @@
         </div>
 
         <div class="timeline">
-          <div class="timeline-card reveal">
+          <div class="timeline-card tilt-card reveal">
             <h3>İstiqamət seçilir</h3>
             <p>Müştəri Schengen ölkəsini seçir və həmin istiqamət üzrə məlumatları görür.</p>
           </div>
 
-          <div class="timeline-card reveal">
+          <div class="timeline-card tilt-card reveal">
             <h3>Səfər detalları yazılır</h3>
             <p>Tarix və sərnişin sayı daxil edilir, müraciət daha konkret formaya düşür.</p>
           </div>
 
-          <div class="timeline-card reveal">
+          <div class="timeline-card tilt-card reveal">
             <h3>Passport məlumatları tamamlanır</h3>
             <p>Viza və səyahət müraciəti üçün lazım olan əsas məlumatlar formda toplanır.</p>
           </div>
 
-          <div class="timeline-card reveal">
+          <div class="timeline-card tilt-card reveal">
             <h3>Sorğu agentliyə yönləndirilir</h3>
             <p>Müraciət order ID ilə sistemə düşür və menecer tərəfindən izlənilə bilir.</p>
           </div>
@@ -2038,35 +2301,35 @@
         </div>
 
         <div class="popular-grid">
-          <div class="popular-card reveal">
+          <div class="popular-card tilt-card reveal">
             <small>Visa</small>
             <h3>Schengen Viza</h3>
             <p>Schengen istiqamətləri üzrə müraciət yönləndirməsi.</p>
             <a class="mini-btn" href="#booking">Müraciət et</a>
           </div>
 
-          <div class="popular-card reveal">
+          <div class="popular-card tilt-card reveal">
             <small>Ticket</small>
             <h3>Avia Bilet</h3>
             <p>Səyahət istiqamətinə uyğun bilet sorğusu.</p>
             <a class="mini-btn" href="https://wa.me/994506521101" target="_blank">Sorğu göndər</a>
           </div>
 
-          <div class="popular-card reveal">
+          <div class="popular-card tilt-card reveal">
             <small>Tour</small>
             <h3>Tur Paket</h3>
             <p>Fərdi və qrup səfərləri üçün tur seçimləri.</p>
             <a class="mini-btn" href="https://wa.me/994506521101" target="_blank">Əlaqə saxla</a>
           </div>
 
-          <div class="popular-card reveal">
+          <div class="popular-card tilt-card reveal">
             <small>Transfer</small>
             <h3>Transfer</h3>
             <p>Səfər zamanı rahat transfer həlləri.</p>
             <a class="mini-btn" href="tel:+994506521101">Zəng et</a>
           </div>
 
-          <div class="popular-card reveal">
+          <div class="popular-card tilt-card reveal">
             <small>Group</small>
             <h3>Qrup Turları</h3>
             <p>Qrup səfərləri üçün müraciət və planlama.</p>
@@ -2090,27 +2353,27 @@
           </div>
 
           <div class="faq-list">
-            <div class="faq-item reveal">
+            <div class="faq-item tilt-card reveal">
               <h3>Viza müraciəti nə qədər vaxt aparır?</h3>
               <p>Müddət ölkəyə, müraciət növünə və sənəd hazırlığına görə dəyişə bilər. Menecer müraciətdən sonra uyğun məlumat verir.</p>
             </div>
 
-            <div class="faq-item reveal">
+            <div class="faq-item tilt-card reveal">
               <h3>Passport məlumatları niyə tələb olunur?</h3>
               <p>Passport məlumatları müraciətin düzgün yönləndirilməsi və səyahət məlumatlarının dəqiq hazırlanması üçün lazımdır.</p>
             </div>
 
-            <div class="faq-item reveal">
+            <div class="faq-item tilt-card reveal">
               <h3>Müraciətdən sonra nə baş verir?</h3>
               <p>Sorğu qəbul edilir, order ID yaradılır və menecer məlumatları yoxlayaraq sizinlə əlaqə saxlayır.</p>
             </div>
 
-            <div class="faq-item reveal">
+            <div class="faq-item tilt-card reveal">
               <h3>Ödəniş necə edilir?</h3>
               <p>Ödəniş və xidmət şərtləri müraciət təsdiqləndikdən sonra menecer tərəfindən təqdim edilir.</p>
             </div>
 
-            <div class="faq-item reveal">
+            <div class="faq-item tilt-card reveal">
               <h3>Schengen ölkələri üzrə məlumatlar dəyişə bilər?</h3>
               <p>Bəli. Viza məlumatları, sənəd tələbləri və qiymətlər istiqamətə görə yenilənə bilər.</p>
             </div>
@@ -2129,7 +2392,7 @@
           </p>
         </div>
 
-        <div class="booking-panel reveal">
+        <div class="booking-panel tilt-card reveal">
           <div class="booking-top">
             <div>
               <h2 data-i18n="bookingTopTitle">Schengen müraciəti</h2>
@@ -2142,7 +2405,7 @@
                 <img class="small-flag" id="miniSelectedFlag" src="" alt="">
                 <strong id="miniSelectedCountry">Austria</strong>
               </div>
-              <button class="btn btn-gold" onclick="openCountryModal()" data-i18n="changeCountry">Ölkəni seç</button>
+              <button class="btn magnetic btn-gold" onclick="openCountryModal()" data-i18n="changeCountry">Ölkəni seç</button>
             </div>
           </div>
 
@@ -2194,8 +2457,8 @@
                   </div>
 
                   <div class="form-actions">
-                    <button type="button" class="btn btn-light" onclick="openCountryModal()" data-i18n="chooseCountryAgain">Ölkə seç</button>
-                    <button type="button" class="btn btn-primary" onclick="nextStep()" data-i18n="nextBtn">Davam et</button>
+                    <button type="button" class="btn magnetic btn-light" onclick="openCountryModal()" data-i18n="chooseCountryAgain">Ölkə seç</button>
+                    <button type="button" class="btn magnetic btn-primary" onclick="nextStep()" data-i18n="nextBtn">Davam et</button>
                   </div>
                 </div>
 
@@ -2209,8 +2472,8 @@
                   </div>
 
                   <div class="form-actions">
-                    <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn">Geri</button>
-                    <button type="button" class="btn btn-primary" onclick="nextStep()" data-i18n="nextBtn2">Davam et</button>
+                    <button type="button" class="btn magnetic btn-light" onclick="prevStep()" data-i18n="backBtn">Geri</button>
+                    <button type="button" class="btn magnetic btn-primary" onclick="nextStep()" data-i18n="nextBtn2">Davam et</button>
                   </div>
                 </div>
 
@@ -2266,8 +2529,8 @@
                   </div>
 
                   <div class="form-actions">
-                    <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn2">Geri</button>
-                    <button type="button" class="btn btn-primary" onclick="nextStep()" data-i18n="nextBtn3">Davam et</button>
+                    <button type="button" class="btn magnetic btn-light" onclick="prevStep()" data-i18n="backBtn2">Geri</button>
+                    <button type="button" class="btn magnetic btn-primary" onclick="nextStep()" data-i18n="nextBtn3">Davam et</button>
                   </div>
                 </div>
 
@@ -2292,8 +2555,8 @@
                   </div>
 
                   <div class="form-actions">
-                    <button type="button" class="btn btn-light" onclick="prevStep()" data-i18n="backBtn3">Geri</button>
-                    <button type="submit" class="btn btn-primary" id="submitBtn" data-i18n="submitBtn">Müraciəti göndər</button>
+                    <button type="button" class="btn magnetic btn-light" onclick="prevStep()" data-i18n="backBtn3">Geri</button>
+                    <button type="submit" class="btn magnetic btn-primary" id="submitBtn" data-i18n="submitBtn">Müraciəti göndər</button>
                   </div>
 
                   <div id="notice" class="notice"></div>
@@ -2314,7 +2577,7 @@
         </div>
 
         <div class="contact-grid">
-          <div class="contact-card reveal">
+          <div class="contact-card tilt-card reveal">
             <div class="contact-row">
               <small data-i18n="addressLabel">Ünvan</small>
               <p>Jalə Plaza, 5-ci mərtəbə</p>
@@ -2373,8 +2636,8 @@
         </div>
 
         <div class="success-actions">
-          <button class="btn btn-primary" type="button" onclick="closeSuccessModal()" data-i18n="successClose">Bağla</button>
-          <a class="btn btn-light" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
+          <button class="btn magnetic btn-primary" type="button" onclick="closeSuccessModal()" data-i18n="successClose">Bağla</button>
+          <a class="btn magnetic btn-light" href="https://wa.me/994506521101" target="_blank">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -3071,9 +3334,78 @@
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
+
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("pageLoader");
+      setTimeout(() => { if (loader) loader.classList.add("hide"); }, 650);
+    });
+
+    const scrollProgress = document.getElementById("scrollProgress");
+    window.addEventListener("scroll", function() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      if (scrollProgress) scrollProgress.style.width = progress + "%";
+    }, { passive: true });
+
+    const customCursor = document.getElementById("customCursor");
+    const cursorDot = document.getElementById("cursorDot");
+    let cursorX = 0, cursorY = 0, ringX = 0, ringY = 0;
+
+    document.addEventListener("mousemove", function(e) {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      if (cursorDot) {
+        cursorDot.style.left = cursorX + "px";
+        cursorDot.style.top = cursorY + "px";
+      }
+    });
+
+    function animateCursor() {
+      ringX += (cursorX - ringX) * 0.18;
+      ringY += (cursorY - ringY) * 0.18;
+      if (customCursor) {
+        customCursor.style.left = ringX + "px";
+        customCursor.style.top = ringY + "px";
+      }
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll("a, button, input, textarea, .country-card").forEach(el => {
+      el.addEventListener("mouseenter", () => customCursor && customCursor.classList.add("hover"));
+      el.addEventListener("mouseleave", () => customCursor && customCursor.classList.remove("hover"));
+    });
+
+    document.querySelectorAll(".magnetic").forEach(el => {
+      el.addEventListener("mousemove", function(e) {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        el.style.transform = `translate(${x * 0.10}px, ${y * 0.18}px)`;
+      });
+      el.addEventListener("mouseleave", function() { el.style.transform = ""; });
+    });
+
+    document.querySelectorAll(".tilt-card").forEach(card => {
+      card.addEventListener("mousemove", function(e) {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateY = ((x / rect.width) - 0.5) * 7;
+        const rotateX = ((y / rect.height) - 0.5) * -7;
+        card.classList.add("is-tilting");
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-3px)`;
+      });
+      card.addEventListener("mouseleave", function() {
+        card.classList.remove("is-tilting");
+        card.style.transform = "";
+      });
+    });
+
+
     setLang(currentLang);
     updateSelectedInfo();
   </script>
 </body>
 </html>
-
